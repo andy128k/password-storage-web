@@ -7,7 +7,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/,  loader: "babel-loader", exclude: /node_modules/, query: { presets: ['es2015'], plugins: ['transform-runtime'] } }
+      { test: /\.js$/,  loader: "babel-loader", exclude: /node_modules/, query: { presets: ['es2015', 'react'], plugins: ['transform-runtime'] } }
     ],
     preLoaders: [
       { test: /\.js$/, loader: "eslint-loader", exclude: /node_modules|tests/ }
