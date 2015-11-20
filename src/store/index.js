@@ -1,13 +1,15 @@
 import {
   OPEN_FILE,
   FILTER_ENTRIES,
+  SHOW_ENTRY,
 } from '../constants';
 import revelation from '../libs/revelation';
 
 const initialContent = {
   content: null,
   entries: [],
-  filteredEntries: null
+  filteredEntries: null,
+  currentEntry: null
 };
 
 function satisfies(query) {
@@ -46,21 +48,31 @@ export function content(state = initialContent, action) {
     return {
       content: action.content,
       entries: revelation.read(action.content, password),
-      filteredEntries: null
+      filteredEntries: null,
+      currentEntry: null
     };
   case FILTER_ENTRIES:
     if (action.query)
       return {
         content: state.content,
         entries: state.entries,
-        filteredEntries: filterEntries(state.entries, satisfies(action.query))
+        filteredEntries: filterEntries(state.entries, satisfies(action.query)),
+        currentEntry: null
       };
     else
       return {
         content: state.content,
         entries: state.entries,
-        filteredEntries: null
+        filteredEntries: null,
+        currentEntry: null
       };
+  case SHOW_ENTRY:
+    return {
+      content: state.content,
+      entries: state.entries,
+      filteredEntries: state.filteredEntries,
+      currentEntry: action.entry
+    };
   default:
     return state;
   }

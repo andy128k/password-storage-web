@@ -3,7 +3,17 @@
   padding: 10px;
 }
 
-.tree-node {
+.tree__node {
   margin-left: 20px;
+}
+
+.splitter {
+  display: flex;
+  flex-direction: row;
+}
+
+.splitter__panel {
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
