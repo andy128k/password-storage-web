@@ -27,7 +27,7 @@
     "webpack": "^1.12.4"
   },
   "dependencies": {
-    "aes-es": "^1.0.0",
+    "aes-es": "^1.0.1",
     "pako": "^0.2.8",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
