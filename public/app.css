@@ -1,6 +1,35 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.app {
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__toolbar {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.app__content {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-height: 10px;
+}
+
 .file-input {
   border: 1px dotted #666;
   padding: 10px;
+}
+
+.tree {
+  overflow: auto;
+  max-height: 100%;
 }
 
 .tree__node {
@@ -10,10 +39,13 @@
 .splitter {
   display: flex;
   flex-direction: row;
+  align-items: stretch;
+  height: 100%;
 }
 
 .splitter__panel {
   flex-grow: 1;
   flex-shrink: 1;
+  height: 100%;
 }
 

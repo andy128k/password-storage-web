@@ -8,12 +8,16 @@ import Tree from './tree';
 
 class App extends React.Component {
   render() {
-    return React.DOM.div(null,
-      React.createElement(FileInput, {onChange: this.fileChanged.bind(this)}),
-      React.createElement(Search, {onSearch: this.onSearch.bind(this)}),
-      React.createElement(Splitter, null,
-        React.createElement(Tree, {entries: this.props.filteredEntries || this.props.entries, onClick: this.entryClicked.bind(this)}),
-        React.DOM.div(null, JSON.stringify(this.props.currentEntry))
+    return React.DOM.div({className: 'app'},
+      React.DOM.div({className: 'app__toolbar'},
+        React.createElement(FileInput, {onChange: this.fileChanged.bind(this)}),
+        React.createElement(Search, {onSearch: this.onSearch.bind(this)})
+      ),
+      React.DOM.div({className: 'app__content'},
+        React.createElement(Splitter, null,
+          React.createElement(Tree, {entries: this.props.filteredEntries || this.props.entries, onClick: this.entryClicked.bind(this)}),
+          React.DOM.div(null, JSON.stringify(this.props.currentEntry))
+        )
       )
     );
   }
