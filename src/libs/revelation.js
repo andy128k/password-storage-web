@@ -1,39 +1,41 @@
-import { ModeOfOperation as AES } from 'aes-es';
-import { memMove } from 'aes-es/src/buffer';
+import { ECB, CBC } from 'aes-es';
 import pako from 'pako';
 import { UTF8Decode } from './utf8';
 
 function passwordBlock(password) {
-  var buf = new ArrayBuffer(32);
-  var view = new DataView(buf);
-  for (let i = 0; i < password.length && i < 32; ++i) {
-    view.setUint8(i, password.charCodeAt(i));
+  let buf = new Array(32), i;
+  for (i = 0; i < password.length && i < 32; ++i) {
+    buf[i] = password.charCodeAt(i);
   }
-  return view;
+  for (; i < 32; ++i) {
+    buf[i] = 0;
+  }
+  return buf;
 }
 
 function decrypt(file, password) {
   password = passwordBlock(password);
 
-  var ivView = new DataView(file, 12, 16);
-  var iv = (new AES.ecb(password)).decrypt(ivView);
+  var ivView = new Uint8Array(file, 12, 16);
+  var iv = new Array(16);
+  new ECB(password).decrypt(ivView, iv);
 
-  var decryptor = new AES.cbc(password, iv);
+  var decryptor = new CBC(password, iv);
   var result = new ArrayBuffer(file.byteLength - 28);
-  var resultView = new DataView(result);
+  var resultView = new Uint8Array(result);
   var blocks = (file.byteLength - 28) / 16;
   for (let i = 0; i < blocks; ++i) {
-    var blockView = new DataView(file, 28 + i * 16, 16);
-    var block = decryptor.decrypt(blockView);
-    memMove(block, 0, 16, resultView, i * 16);
+    var blockView = new Uint8Array(file, 28 + i * 16, 16);
+    var dstView = new Uint8Array(result, i * 16, 16);
+    decryptor.decrypt(blockView, dstView);
   }
 
-  const padlen = resultView.getUint8(resultView.byteLength - 1);
+  const padlen = resultView[resultView.byteLength - 1];
   if (padlen < 1 || padlen > 16)
     throw new Error('Bad padlen ' + padlen + '.');
 
   for (var i = resultView.byteLength - padlen; i < resultView.byteLength; ++i)
-    if (resultView.getUint8(i) !== padlen)
+    if (resultView[i] !== padlen)
       throw new Error("padding is corrupted");
 
   resultView = new Uint8Array(result, 0, result.byteLength - padlen);
