@@ -46,6 +46,25 @@ html, body {
 .splitter__panel {
   flex-grow: 1;
   flex-shrink: 1;
+  flex-basis: 0;
   height: 100%;
+}
+
+.entry-view {
+  height: 100%;
+  overflow: auto;
+}
+.entry-view__row {
+  margin: 10px
+}
+.entry-view__name {
+  font-weight: bold;
+}
+.entry-view__value {
+  min-height: 1em;
+  border: 1px dotted #666;
+  padding: 0.5em;
+  margin: 0.5em 0 0;
+  white-space: pre-wrap;
 }
 

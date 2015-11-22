@@ -5,6 +5,7 @@ import FileInput from '../widgets/file_input';
 import Splitter from '../widgets/splitter';
 import Search from './search';
 import Tree from './tree';
+import EntryView from './entry_view';
 
 class App extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class App extends React.Component {
       React.DOM.div({className: 'app__content'},
         React.createElement(Splitter, null,
           React.createElement(Tree, {entries: this.props.filteredEntries || this.props.entries, onClick: this.entryClicked.bind(this)}),
-          React.DOM.div(null, JSON.stringify(this.props.currentEntry))
+          React.createElement(EntryView, {entry: this.props.currentEntry})
         )
       )
     );
