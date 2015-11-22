@@ -14,6 +14,8 @@ html, body {
 .app__toolbar {
   flex-grow: 0;
   flex-shrink: 0;
+  padding: 10px;
+  border-bottom: 1px solid #666;
 }
 
 .app__content {
@@ -25,6 +27,7 @@ html, body {
 .file-input {
   border: 1px dotted #666;
   padding: 10px;
+  margin: 10px;
 }
 
 .tree {
@@ -33,7 +36,11 @@ html, body {
 }
 
 .tree__node {
-  margin-left: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.tree__row:hover {
+  background: #eee;
 }
 
 .splitter {
