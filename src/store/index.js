@@ -9,6 +9,7 @@ const initialContent = {
   filename: null,
   content: null,
   entries: [],
+  searchQuery: '',
   filteredEntries: null,
   currentEntry: null
 };
@@ -46,15 +47,14 @@ export function content(state = initialContent, action) {
   switch (action.type) {
   case OPEN_FILE:
     const password = prompt('Enter password');
-    return {
+    return Object.assign({}, initialContent, {
       filename: action.filename,
       content: action.content,
       entries: revelation.read(action.content, password),
-      filteredEntries: null,
-      currentEntry: null
-    };
+    });
   case FILTER_ENTRIES:
     return Object.assign({}, state, {
+      searchQuery: action.query,
       filteredEntries: action.query ? filterEntries(state.entries, satisfies(action.query)) : null,
       currentEntry: null
     });
