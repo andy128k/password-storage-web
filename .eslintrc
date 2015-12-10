@@ -7,6 +7,7 @@ ecmaFeatures:
   modules: true
   classes: true
   spread: true
+  jsx: true
 rules:
   quotes: [0, double]
   curly: 0

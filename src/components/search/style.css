@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  margin: 10px 0 0;
+  padding: 0;
+  align-items: center;
+}
+
+.label {
+  margin: 0 10px 0 0;
+}
+
+.entry {
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  padding: 10px;
+
+  border: none;
+  background: #B07050;
+  color: white;
+}
+
