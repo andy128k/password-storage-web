@@ -23,8 +23,8 @@ class App extends React.Component {
     );
   }
 
-  fileChanged(file) {
-    this.props.dispatch(openFile(file));
+  fileChanged(fileContent, fileName) {
+    this.props.dispatch(openFile(fileContent, fileName));
   }
 
   onSearch(query) {

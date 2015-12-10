@@ -6,6 +6,7 @@ import {
 import revelation from '../libs/revelation';
 
 const initialContent = {
+  filename: null,
   content: null,
   entries: [],
   filteredEntries: null,
@@ -46,33 +47,21 @@ export function content(state = initialContent, action) {
   case OPEN_FILE:
     const password = prompt('Enter password');
     return {
+      filename: action.filename,
       content: action.content,
       entries: revelation.read(action.content, password),
       filteredEntries: null,
       currentEntry: null
     };
   case FILTER_ENTRIES:
-    if (action.query)
-      return {
-        content: state.content,
-        entries: state.entries,
-        filteredEntries: filterEntries(state.entries, satisfies(action.query)),
-        currentEntry: null
-      };
-    else
-      return {
-        content: state.content,
-        entries: state.entries,
-        filteredEntries: null,
-        currentEntry: null
-      };
+    return Object.assign({}, state, {
+      filteredEntries: action.query ? filterEntries(state.entries, satisfies(action.query)) : null,
+      currentEntry: null
+    });
   case SHOW_ENTRY:
-    return {
-      content: state.content,
-      entries: state.entries,
-      filteredEntries: state.filteredEntries,
+    return Object.assign({}, state, {
       currentEntry: action.entry
-    };
+    });
   default:
     return state;
   }

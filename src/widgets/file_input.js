@@ -33,15 +33,16 @@ class FileInput extends React.Component {
   }
 
   _fileChanged(event) {
-    this.setState({value: event.target.value});
+    const filename = event.target.value;
+    this.setState({value: filename});
 
     let file = event.target.files[0];
     if (file) {
       let reader = new FileReader();
-      reader.onloadend = event => this.props.onChange(event.target.result);
+      reader.onloadend = event => this.props.onChange(event.target.result, filename);
       reader.readAsArrayBuffer(file);
     } else {
-      this.props.onChange(null);
+      this.props.onChange(null, null);
     }
   }
 

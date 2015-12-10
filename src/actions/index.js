@@ -4,8 +4,8 @@ import {
   SHOW_ENTRY,
 } from '../constants';
 
-export function openFile(content) {
-  return { type: OPEN_FILE, content };
+export function openFile(content, filename) {
+  return { type: OPEN_FILE, content, filename };
 }
 
 export function filterEntries(query) {
