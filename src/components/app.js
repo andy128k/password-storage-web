@@ -12,7 +12,10 @@ class App extends React.Component {
     return React.DOM.div({className: 'app'},
       React.DOM.div({className: 'app__toolbar'},
         React.createElement(FileInput, {onChange: this.fileChanged.bind(this)}),
-        React.createElement(Search, {query: this.props.searchQuery, onSearch: this.onSearch.bind(this)})
+
+        (this.props.content ?
+          React.createElement(Search, {query: this.props.searchQuery, onSearch: this.onSearch.bind(this)}) :
+          null)
       ),
       React.DOM.div({className: 'app__content'},
         React.createElement(Splitter, null,
