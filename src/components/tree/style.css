@@ -1,0 +1,16 @@
+.tree {
+  overflow: auto;
+  max-height: 100%;
+}
+
+.node {
+  padding-left: 20px;
+  cursor: pointer;
+}
+.row {
+  padding: 5px 0 5px 5px;
+}
+.row:hover {
+  background: #eee;
+}
+

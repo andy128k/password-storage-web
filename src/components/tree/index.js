@@ -1,8 +1,9 @@
 import React from 'react';
+import {tree, node, row} from './style.css';
 
 class Tree extends React.Component {
   render() {
-    return React.DOM.div({className: 'tree'},
+    return React.DOM.div({className: tree},
       this.renderEntries(this.props.entries, 0)
     );
   }
@@ -12,14 +13,14 @@ class Tree extends React.Component {
   }
 
   renderNode(entry, level, key) {
-    return React.DOM.div({className: 'tree__node tree__node_level' + level, key},
+    return React.DOM.div({className: node + ' tree__node_level' + level, key},
       this.renderRow(entry),
       this.renderEntries(entry.children, level + 1)
     );
   }
 
   renderRow(entry) {
-    return React.DOM.div({className: 'tree__row', onClick: this.props.onClick.bind(null, entry)},
+    return React.DOM.div({className: row, onClick: this.props.onClick.bind(null, entry)},
       entry.name
     );
   }
