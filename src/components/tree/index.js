@@ -1,10 +1,32 @@
 import React from 'react';
 import {tree, node, row} from './style.css';
 
-class Tree extends React.Component {
+class Row extends React.Component {
+  static displayName = 'Row';
+
   render() {
-    return React.DOM.div({className: tree},
-      this.renderEntries(this.props.entries, 0)
+    const {entry} = this.props;
+    return (
+      <div className={row} onClick={this.clicked}>
+        {entry.name}
+      </div>
+    );
+  }
+
+  clicked = () => {
+    const {entry, onClick} = this.props;
+    onClick(entry);
+  };
+}
+
+class Tree extends React.Component {
+  static displayName = 'Tree';
+
+  render() {
+    return (
+      <div className={tree}>
+        {this.renderEntries(this.props.entries, 0)}
+      </div>
     );
   }
 
@@ -13,20 +35,13 @@ class Tree extends React.Component {
   }
 
   renderNode(entry, level, key) {
-    return React.DOM.div({className: node + ' tree__node_level' + level, key},
-      this.renderRow(entry),
-      this.renderEntries(entry.children, level + 1)
-    );
-  }
-
-  renderRow(entry) {
-    return React.DOM.div({className: row, onClick: this.props.onClick.bind(null, entry)},
-      entry.name
+    return (
+      <div className={node + ' tree__node_level' + level} key={key}>
+        <Row entry={entry} />
+        {this.renderEntries(entry.children, level + 1)}
+      </div>
     );
   }
 }
 
-Tree.displayName = 'Tree';
-
 export default Tree;
-

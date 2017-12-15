@@ -45,7 +45,7 @@ function decrypt(file, password) {
 }
 
 function parseXML(content) {
-  const parseEntry = function(tree) {
+  function parseEntry(tree) {
     let entry = {
       type: tree.getAttribute('type')
     };
@@ -64,9 +64,9 @@ function parseXML(content) {
     entry.children = parseChildren(tree);
 
     return entry;
-  };
+  }
 
-  const parseChildren = function(tree) {
+  function parseChildren(tree) {
     let result = [];
     for (let i = 0; i < tree.childNodes.length; ++i) {
       let node = tree.childNodes.item(i);
@@ -74,7 +74,7 @@ function parseXML(content) {
         result.push( parseEntry(node) );
     }
     return result;
-  };
+  }
 
   var parser = new DOMParser();
   var doc = parser.parseFromString(content, 'text/xml');
@@ -95,4 +95,3 @@ function read(file, password) {
 export default {
   read
 };
-

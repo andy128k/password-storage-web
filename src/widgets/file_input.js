@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-let style = {
+const style = {
   block: {
     position: 'relative'
   },
@@ -18,21 +18,22 @@ let style = {
 
 
 class FileInput extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: null
-    };
-  }
+  static displayName = 'FileInput';
+
+  state = {
+    value: null
+  };
 
   render() {
-    return React.DOM.div({className: 'file-input', style: style.block},
-      React.DOM.input({type: 'file', style: style.input, onChange: this._fileChanged.bind(this)}),
-      React.DOM.div({className: 'file-input__label'}, this._renderLabel())
+    return (
+      <div className='file-input' style={style.block}>
+        <input type='file' style={style.input} onChange={this.fileChanged} />
+        <div className={'file-input__label'}>{this.renderLabel()}</div>
+      </div>
     );
   }
 
-  _fileChanged(event) {
+  fileChanged = (event) => {
     const filename = event.target.value;
     this.setState({value: filename});
 
@@ -44,9 +45,9 @@ class FileInput extends React.Component {
     } else {
       this.props.onChange(null, null);
     }
-  }
+  };
 
-  _renderLabel() {
+  renderLabel() {
     if (this.props.label) {
       return this.props.label(this.state.value);
     } else {
@@ -55,7 +56,4 @@ class FileInput extends React.Component {
   }
 }
 
-FileInput.displayName = 'FileInput';
-
 export default FileInput;
-

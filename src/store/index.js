@@ -45,13 +45,14 @@ function filterEntry(entry, predicate) {
 
 export function content(state = initialContent, action) {
   switch (action.type) {
-  case OPEN_FILE:
+  case OPEN_FILE: {
     const password = prompt('Enter password');
     return Object.assign({}, initialContent, {
       filename: action.filename,
       content: action.content,
       entries: revelation.read(action.content, password),
     });
+  }
   case FILTER_ENTRIES:
     return Object.assign({}, state, {
       searchQuery: action.query,

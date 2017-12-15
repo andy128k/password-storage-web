@@ -9,34 +9,36 @@ import EntryView from './entry_view';
 
 class App extends React.Component {
   render() {
-    return React.DOM.div({className: 'app'},
-      React.DOM.div({className: 'app__toolbar'},
-        React.createElement(FileInput, {onChange: this.fileChanged.bind(this)}),
+    return (
+      <div className={'app'}>
+        <div className={'app__toolbar'}>
+          <FileInput onChange={this.fileChanged} />
 
-        (this.props.content ?
-          React.createElement(Search, {query: this.props.searchQuery, onSearch: this.onSearch.bind(this)}) :
-          null)
-      ),
-      React.DOM.div({className: 'app__content'},
-        React.createElement(Splitter, null,
-          React.createElement(Tree, {entries: this.props.filteredEntries || this.props.entries, onClick: this.entryClicked.bind(this)}),
-          React.createElement(EntryView, {entry: this.props.currentEntry})
-        )
-      )
+          {this.props.content ?
+            <Search query={this.props.searchQuery} onSearch={this.onSearch} /> :
+            null}
+        </div>
+        <div className={'app__content'}>
+          <Splitter>
+            <Tree entries={this.props.filteredEntries || this.props.entries} onClick={this.entryClicked} />
+            <EntryView entry={this.props.currentEntry} />
+          </Splitter>
+        </div>
+      </div>
     );
   }
 
-  fileChanged(fileContent, fileName) {
+  fileChanged = (fileContent, fileName) => {
     this.props.dispatch(openFile(fileContent, fileName));
-  }
+  };
 
-  onSearch(query) {
+  onSearch = (query) => {
     this.props.dispatch(filterEntries(query));
-  }
+  };
 
-  entryClicked(entry) {
+  entryClicked = (entry) => {
     this.props.dispatch(showEntry(entry));
-  }
+  };
 }
 
 function select(state) {
@@ -44,4 +46,3 @@ function select(state) {
 }
 
 export default connect(select)(App);
-

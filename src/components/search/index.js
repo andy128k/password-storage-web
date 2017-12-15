@@ -2,31 +2,32 @@ import React from 'react';
 import {form, label, entry, reset} from './style.css';
 
 class Search extends React.Component {
-  render() {
-    const id = 'search-' + Math.random().toString(36).substring(5);
+  static displayName = 'Search';
 
+  id = 'search-' + Math.random().toString(36).substring(5);
+
+  render() {
     return (
       <div className={form}>
-        <label className={label} htmlFor={id}>Search:</label>
-        <input className={entry} id={id} value={this.props.query} onChange={this.queryChanged.bind(this)}/>
-        <button className={reset} onClick={this.reset.bind(this)}>Reset</button>
+        <label className={label} htmlFor={this.id}>Search:</label>
+        <input className={entry} id={this.id} value={this.props.query} onChange={this.queryChanged}/>
+        <button className={reset} onClick={this.reset}>Reset</button>
       </div>
     );
   }
 
-  queryChanged(event) {
-    if (this.props.onSearch)
+  queryChanged = (event) => {
+    if (this.props.onSearch) {
       this.props.onSearch(event.target.value);
-  }
+    }
+  };
 
-  reset(event) {
+  reset = (event) => {
     event.preventDefault();
-    if (this.props.onSearch)
+    if (this.props.onSearch) {
       this.props.onSearch('');
-  }
+    }
+  };
 }
 
-Search.displayName = 'Search';
-
 export default Search;
-

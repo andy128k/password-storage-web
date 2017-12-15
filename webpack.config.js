@@ -6,16 +6,25 @@ module.exports = {
     filename: 'index.js'
   },
   module: {
-    loaders: [
-      { test: /\.js$/,  loader: "babel-loader", exclude: /node_modules/, query: { presets: ['es2015', 'react'], plugins: ['transform-runtime'] } },
-      { test: /\.css$/, loader: "style-loader!css-loader?modules" }
-    ],
-    preLoaders: [
-      { test: /\.js$/, loader: "eslint-loader", exclude: /node_modules|tests/ }
+    rules: [
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader?modules"
+      },
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules/
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "eslint-loader",
+        exclude: /node_modules|tests/,
+        options: {
+          configPath: __dirname + ".eslintrc"
+        }
+      }
     ]
-  },
-  eslint: {
-    configPath: __dirname + ".eslintrc"
   }
 };
-

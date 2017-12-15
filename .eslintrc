@@ -1,21 +1,25 @@
----
 env:
-  es6: true
-  node: true
   browser: true
-ecmaFeatures:
-  modules: true
-  classes: true
-  spread: true
+  node: true
+  es6: true
+parser: babel-eslint
+parserOptions:
+  sourceType: module
   jsx: true
+plugins:
+  - react
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
 rules:
-  quotes: [0, double]
-  curly: 0
-  no-underscore-dangle: 0
-  camelcase: 0
-  semi: 1
-  no-use-before-define: 1
-  eqeqeq: 1
-  no-alert: 0
-  no-unused-vars: 2
-
+  quotes: [off, double]
+  camelcase: off
+  semi: warn
+  no-use-before-define: [error, nofunc]
+  eqeqeq: warn
+  no-alert: off
+  no-unused-vars: error
+  react/prop-types: off
+  react/jsx-no-undef: error
+  react/jsx-no-bind: error
+  react/no-unknown-property: error
