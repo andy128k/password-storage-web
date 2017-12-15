@@ -1,6 +1,8 @@
 import React from 'react';
 
 class EntryView extends React.Component {
+  static displayName = 'EntryView';
+
   render() {
     if (!this.props.entry)
       return <div className={'entry-view'} />;
@@ -23,7 +25,5 @@ class EntryView extends React.Component {
     );
   }
 }
-
-EntryView.displayName = 'EntryView';
 
 export default EntryView;

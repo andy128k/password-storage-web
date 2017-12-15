@@ -31,4 +31,3 @@ export function UTF8Decode(byteArray) {
 
   return out;
 }
-

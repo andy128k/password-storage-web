@@ -37,34 +37,36 @@ function filterEntries(entries, predicate) {
 function filterEntry(entry, predicate) {
   const children = filterEntries(entry.children, predicate);
   if (children.length || predicate(entry)) {
-    return Object.assign({}, entry, {children});
+    return {...entry, children};
   } else {
     return null;
   }
 }
 
-export function content(state = initialContent, action) {
+export default function(state = initialContent, action) {
   switch (action.type) {
   case OPEN_FILE: {
     const password = prompt('Enter password');
-    return Object.assign({}, initialContent, {
+    return {
+      ...initialContent,
       filename: action.filename,
       content: action.content,
       entries: revelation.read(action.content, password),
-    });
+    };
   }
   case FILTER_ENTRIES:
-    return Object.assign({}, state, {
+    return {
+      ...state,
       searchQuery: action.query,
       filteredEntries: action.query ? filterEntries(state.entries, satisfies(action.query)) : null,
       currentEntry: null
-    });
+    };
   case SHOW_ENTRY:
-    return Object.assign({}, state, {
+    return {
+      ...state,
       currentEntry: action.entry
-    });
+    };
   default:
     return state;
   }
 }
-
