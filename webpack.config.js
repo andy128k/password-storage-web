@@ -9,7 +9,17 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader?modules"
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              camelCase: 'dashes',
+              minimize: { zindex: false }
+            }
+          },
+        ]
       },
       {
         test: /\.js$/,

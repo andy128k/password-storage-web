@@ -1,21 +1,5 @@
 import React from 'react';
-
-
-const style = {
-  block: {
-    position: 'relative'
-  },
-  input: {
-    display: 'block',
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    width: '100%',
-    height: '100%',
-    opacity: 0
-  }
-};
-
+import style from './style.css';
 
 class FileInput extends React.Component {
   static displayName = 'FileInput';
@@ -26,9 +10,9 @@ class FileInput extends React.Component {
 
   render() {
     return (
-      <div className='file-input' style={style.block}>
-        <input type='file' style={style.input} onChange={this.fileChanged} />
-        <div className={'file-input__label'}>{this.renderLabel()}</div>
+      <div className={style.block}>
+        <input type='file' className={style.input} onChange={this.fileChanged} />
+        <div>{this.renderLabel()}</div>
       </div>
     );
   }
