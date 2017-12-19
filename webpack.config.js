@@ -66,5 +66,8 @@ module.exports = {
         yandex: true,
       }
     }),
-  ]
+  ],
+  devServer: {
+    contentBase: __dirname + '/public/',
+  }
 };
