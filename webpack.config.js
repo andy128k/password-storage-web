@@ -50,11 +50,12 @@ module.exports = {
     new FaviconsWebpackPlugin({
       logo: __dirname + '/password-storage.svg',
       prefix: 'icons-[hash]/',
-      // persistentCache: true,
       inject: true,
       background: '#fff',
       title: title,
       display: "standalone",
+      online: false,
+      logging: true,
       icons: {
         android: true,
         appleIcon: true,
