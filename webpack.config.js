@@ -1,8 +1,13 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+
+var title = 'PasswordStorage Web';
+
 module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
-    path: __dirname + '/public/assets/',
-    publicPath: '/assets/',
+    path: __dirname + '/public/',
+    publicPath: '/',
     filename: 'index.js'
   },
   module: {
@@ -36,5 +41,29 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: title,
+      template: __dirname + '/template.html',
+    }),
+    new FaviconsWebpackPlugin({
+      logo: __dirname + '/password-storage.svg',
+      prefix: 'icons-[hash]/',
+      // persistentCache: true,
+      inject: true,
+      background: '#fff',
+      title: title,
+      display: "standalone",
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        favicons: true,
+        firefox: true,
+        windows: { background: '#da532c' },
+        yandex: true,
+      }
+    }),
+  ]
 };
