@@ -37,7 +37,7 @@ class Tree extends React.Component {
   renderNode(entry, level, key) {
     return (
       <div className={node + ' tree__node_level' + level} key={key}>
-        <Row entry={entry} />
+        <Row entry={entry} onClick={this.props.onClick} />
         {this.renderEntries(entry.children, level + 1)}
       </div>
     );

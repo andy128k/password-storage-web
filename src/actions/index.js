@@ -15,4 +15,3 @@ export function filterEntries(query) {
 export function showEntry(entry) {
   return { type: SHOW_ENTRY, entry };
 }
-

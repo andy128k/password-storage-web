@@ -17,12 +17,12 @@ class App extends React.Component {
           <FileInput onChange={this.props.openFile} />
 
           {this.props.content ?
-            <Search query={this.props.searchQuery} onSearch={this.filterEntries} /> :
+            <Search query={this.props.searchQuery} onSearch={this.props.filterEntries} /> :
             null}
         </div>
         <div className={'app__content'}>
           <Splitter>
-            <Tree entries={this.props.filteredEntries || this.props.entries} onClick={this.showEntry} />
+            <Tree entries={this.props.filteredEntries || this.props.entries} onClick={this.props.showEntry} />
             <EntryView entry={this.props.currentEntry} />
           </Splitter>
         </div>
