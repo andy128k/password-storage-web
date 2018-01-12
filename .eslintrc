@@ -8,16 +8,18 @@ parserOptions:
   jsx: true
 plugins:
   - react
+  - jest
 extends:
   - eslint:recommended
   - plugin:react/recommended
+  - plugin:jest/recommended
 rules:
   quotes: [off, double]
   camelcase: off
   semi: warn
   no-use-before-define: [error, nofunc]
   eqeqeq: warn
-  no-alert: off
+  no-alert: warn
   no-unused-vars: error
   react/prop-types: off
   react/jsx-no-undef: error

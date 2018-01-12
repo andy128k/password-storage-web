@@ -1,11 +1,16 @@
 import {
-  OPEN_FILE,
+  SET_FILE,
+  SET_ERROR,
   FILTER_ENTRIES,
   SHOW_ENTRY,
 } from '../constants';
 
-export function openFile(content, filename) {
-  return { type: OPEN_FILE, content, filename };
+export function setFile(content, filename, entries) {
+  return { type: SET_FILE, content, filename, entries };
+}
+
+export function setError(error) {
+  return { type: SET_ERROR, error };
 }
 
 export function filterEntries(query) {

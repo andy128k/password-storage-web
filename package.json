@@ -11,10 +11,11 @@
   "author": "Andrey Kutejko <andy128k@gmail.com> (http://andy128k.net)",
   "license": "MIT",
   "scripts": {
-    "build_dev": "webpack -d",
-    "build": "webpack -p",
+    "build": "webpack -d",
+    "build:production": "webpack -p",
     "start": "webpack-dev-server",
-    "test": "jest --config ./.jest.json"
+    "test": "jest --config ./.jest.json",
+    "test:watch": "jest --config ./.jest.json --watch"
   },
   "devDependencies": {
     "babel-core": "^6.1.4",
@@ -28,10 +29,12 @@
     "css-loader": "^0.28.7",
     "eslint": "^4.13.1",
     "eslint-loader": "^1.1.1",
+    "eslint-plugin-jest": "^21.6.1",
     "eslint-plugin-react": "^7.5.1",
     "favicons-webpack-plugin": "^0.0.7",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.6",
+    "redux-saga": "^0.16.0",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"

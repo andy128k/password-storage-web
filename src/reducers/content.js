@@ -1,9 +1,9 @@
 import {
-  OPEN_FILE,
+  SET_FILE,
+  SET_ERROR,
   FILTER_ENTRIES,
   SHOW_ENTRY,
 } from '../constants';
-import revelation from '../libs/revelation';
 
 const initialContent = {
   filename: null,
@@ -11,7 +11,8 @@ const initialContent = {
   entries: [],
   searchQuery: '',
   filteredEntries: null,
-  currentEntry: null
+  currentEntry: null,
+  error: null,
 };
 
 function satisfies(query) {
@@ -45,15 +46,20 @@ function filterEntry(entry, predicate) {
 
 export default function(state = initialContent, action) {
   switch (action.type) {
-  case OPEN_FILE: {
-    const password = prompt('Enter password');
+  case SET_FILE: {
     return {
       ...initialContent,
       filename: action.filename,
       content: action.content,
-      entries: revelation.read(action.content, password),
+      entries: action.entries,
+      error: null,
     };
   }
+  case SET_ERROR:
+    return {
+      ...state,
+      error: action.error,
+    };
   case FILTER_ENTRIES:
     return {
       ...state,

@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { openFile, filterEntries, showEntry } from '../../actions';
+import { filterEntries, showEntry } from '../../actions';
+import { openFile } from '../../sagas/open_file';
 import FileInput from '../../widgets/file_input';
 import Splitter from '../../widgets/splitter';
+import ErrorPanel from '../../widgets/error_panel';
 import Search from '../search';
 import Tree from '../tree';
 import EntryView from '../entry_view';
@@ -14,6 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={style.app}>
+        <ErrorPanel error={this.props.error} />
         <div className={style.toolbar}>
           <FileInput onChange={this.props.openFile} />
 
