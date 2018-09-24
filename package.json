@@ -18,7 +18,7 @@
     "test:watch": "jest --config ./.jest.json --watch"
   },
   "devDependencies": {
-    "babel-core": "^6.1.4",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.0.3",
     "babel-jest": "^23.6.0",
     "babel-loader": "^7.1.2",
