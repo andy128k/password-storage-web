@@ -19,9 +19,8 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: 'local',
               camelCase: 'dashes',
-              minimize: { zindex: false }
             }
           },
         ]

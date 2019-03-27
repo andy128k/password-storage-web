@@ -25,3 +25,6 @@ rules:
   react/jsx-no-undef: error
   react/jsx-no-bind: error
   react/no-unknown-property: error
+settings:
+  react:
+    version: '16.4'
