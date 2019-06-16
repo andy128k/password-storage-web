@@ -4,7 +4,7 @@ var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var title = 'PasswordStorage Web';
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: './src/index.js',
   output: {
     path: __dirname + '/public/',
     publicPath: '/',
@@ -20,7 +20,7 @@ module.exports = {
             loader: "css-loader",
             options: {
               modules: 'local',
-              camelCase: 'dashes',
+              localsConvention: 'dashesOnly',
             }
           },
         ]
