@@ -20,7 +20,7 @@ function satisfies(query) {
   return entry => {
     for (let key in entry) {
       if (key !== 'children' &&
-          entry.hasOwnProperty(key) &&
+          Object.prototype.hasOwnProperty.call(entry, key) &&
           entry[key].toLowerCase().indexOf(query) >= 0) {
         return true;
       }
