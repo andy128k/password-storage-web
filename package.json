@@ -13,6 +13,7 @@
   "scripts": {
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
+    "dist": "rm -rf ./public ; yarn build:production ; cd ./public ; tar -caf ../dist.tar.xz .",
     "start": "webpack-dev-server --mode development",
     "test": "jest --config ./.jest.json",
     "test:watch": "jest --config ./.jest.json --watch"
