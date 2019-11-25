@@ -4,6 +4,10 @@
     },
     "transformIgnorePatterns": ["node_modules/"],
 
+    "moduleNameMapper": {
+        "\\.css$": "identity-obj-proxy"
+    },
+
     "collectCoverage": true,
     "collectCoverageFrom" : [
         "src/**/*.js",
