@@ -28,7 +28,7 @@
     "babel-loader": "^8",
     "css-loader": "^3",
     "eslint": "^6",
-    "eslint-loader": "^3",
+    "eslint-loader": "^4",
     "eslint-plugin-jest": "^23",
     "eslint-plugin-react": "^7.5.1",
     "favicons-webpack-plugin": "^3",
