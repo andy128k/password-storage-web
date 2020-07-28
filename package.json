@@ -30,7 +30,7 @@
     "eslint": "^7",
     "eslint-loader": "^4",
     "eslint-plugin-jest": "^23",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react": "^7.20.4",
     "favicons-webpack-plugin": "^3",
     "html-webpack-plugin": "^4",
     "identity-obj-proxy": "^3.0.0",
