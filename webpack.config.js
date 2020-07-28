@@ -19,9 +19,11 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: 'local',
-              localsConvention: 'dashesOnly',
-            }
+              modules: {
+                mode: 'local',
+                exportLocalsConvention: 'dashesOnly',
+              },
+            },
           },
         ]
       },
