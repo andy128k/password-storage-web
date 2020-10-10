@@ -1,5 +1,5 @@
 import React from 'react';
-import {form, label, entry, reset} from './style.css';
+import style from './style.css';
 
 class Search extends React.Component {
   static displayName = 'Search';
@@ -8,10 +8,10 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div className={form}>
-        <label className={label} htmlFor={this.id}>Search:</label>
-        <input className={entry} id={this.id} value={this.props.query} onChange={this.queryChanged}/>
-        <button className={reset} onClick={this.reset}>Reset</button>
+      <div className={style.form}>
+        <label className={style.label} htmlFor={this.id}>Search:</label>
+        <input className={style.entry} id={this.id} value={this.props.query} onChange={this.queryChanged}/>
+        <button className={style.reset} onClick={this.reset}>Reset</button>
       </div>
     );
   }

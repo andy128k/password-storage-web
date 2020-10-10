@@ -1,5 +1,5 @@
 import React from 'react';
-import {tree, node, row} from './style.css';
+import style from './style.css';
 
 class Row extends React.Component {
   static displayName = 'Row';
@@ -7,7 +7,7 @@ class Row extends React.Component {
   render() {
     const {entry} = this.props;
     return (
-      <div className={row} onClick={this.clicked}>
+      <div className={style.row} onClick={this.clicked}>
         {entry.name}
       </div>
     );
@@ -24,7 +24,7 @@ class Tree extends React.Component {
 
   render() {
     return (
-      <div className={tree}>
+      <div className={style.tree}>
         {this.renderEntries(this.props.entries, 0)}
       </div>
     );
@@ -36,7 +36,7 @@ class Tree extends React.Component {
 
   renderNode(entry, level, key) {
     return (
-      <div className={node + ' tree__node_level' + level} key={key}>
+      <div className={style.node + ' tree__node_level' + level} key={key}>
         <Row entry={entry} onClick={this.props.onClick} />
         {this.renderEntries(entry.children, level + 1)}
       </div>
