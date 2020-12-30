@@ -39,7 +39,7 @@
     "style-loader": "^2",
     "webpack": "^4",
     "webpack-cli": "^3",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.11.1"
   },
   "dependencies": {
     "aes-es": "^3",
