@@ -50,7 +50,7 @@ module.exports = {
     }),
     new FaviconsWebpackPlugin({
       logo: __dirname + '/password-storage.svg',
-      prefix: 'icons-[hash]/',
+      prefix: 'icons-[fullhash]/',
       inject: true,
       background: '#fff',
       title: title,
@@ -68,6 +68,10 @@ module.exports = {
       }
     }),
   ],
+  performance: {
+    maxAssetSize: 1_000_000,
+    maxEntrypointSize: 1_000_000,
+  },
   devServer: {
     contentBase: __dirname + '/public/',
   }
