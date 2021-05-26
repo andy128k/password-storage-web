@@ -35,7 +35,7 @@
     "favicons-webpack-plugin": "^5",
     "html-webpack-plugin": "^5",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26",
+    "jest": "^27",
     "react-test-renderer": "^17",
     "style-loader": "^2",
     "webpack": "^5",
