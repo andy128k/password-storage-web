@@ -73,6 +73,8 @@ module.exports = {
     maxEntrypointSize: 1_000_000,
   },
   devServer: {
-    contentBase: __dirname + '/public/',
-  }
+    static: {
+      directory: __dirname + '/public/',
+    },
+  },
 };
