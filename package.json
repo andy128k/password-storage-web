@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "aes-es": "^3",
-    "core-js": "^3.16.3",
+    "core-js": "^3.17.1",
     "pako": "^2",
     "react": "^17",
     "react-dom": "^17",
