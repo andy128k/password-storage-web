@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
+import { sleep } from '../../libs/sleep';
 import style from './style.css';
 
-const EntryField = ({field, value}) => (
-  <div className={style.row}>
-    <div className={style.name}>{field}</div>
-    <div className={style.value}>{value}</div>
-  </div>
-);
+const EntryField = ({label, value}) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = useCallback(async () => {
+    await navigator.clipboard.writeText(value);
+    setCopied(true);
+    await sleep(2000);
+    setCopied(false);
+  }, [value]);
+
+  return (
+    <div className={style.row}>
+      <div className={style.name}>{label}</div>
+      <div className={style.value}>
+        <span className={style.copy} onClick={handleCopy}>{copied ? '\u{1f5f8}' : '\u{1f4cb}'}</span>
+        {value}
+      </div>
+    </div>
+  );
+};
+
+const visibleField = name => !['children', 'type', 'id'].includes(name);
 
 const EntryView = ({entry}) => {
-  const fields = entry ? Object.keys(entry).filter(k => k !== 'children' && k !== 'type') : [];
+  const fields = entry ? Object.keys(entry).filter(visibleField) : [];
   return (
     <div className={style.entryView}>
-      {fields.map(field => <EntryField key={field} field={field} value={entry[field]} />)}
+      {fields.map(field => <EntryField key={field} label={field} value={entry[field]} />)}
     </div>
   );
 };

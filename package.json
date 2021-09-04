@@ -44,11 +44,13 @@
   },
   "dependencies": {
     "aes-es": "^3",
+    "classnames": "^2.3.1",
     "core-js": "^3.17.1",
     "pako": "^2",
     "react": "^17",
     "react-dom": "^17",
     "react-redux": "^7",
+    "react-router-dom": "^5.2.1",
     "redux": "^4.0.0",
     "redux-saga": "^1",
     "regenerator-runtime": "^0.13.2"

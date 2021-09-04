@@ -1,23 +1,9 @@
 import React from 'react';
+import classNames from 'classnames';
+import { Link } from "react-router-dom";
 import style from './style.css';
 
-class Row extends React.Component {
-  static displayName = 'Row';
-
-  render() {
-    const {entry} = this.props;
-    return (
-      <div className={style.row} onClick={this.clicked}>
-        {entry.name}
-      </div>
-    );
-  }
-
-  clicked = () => {
-    const {entry, onClick} = this.props;
-    onClick(entry);
-  };
-}
+const Row = ({entry}) => <Link to={`/entry/${entry.id}`} className={style.entryLink}>{entry.name}</Link>;
 
 class Tree extends React.Component {
   static displayName = 'Tree';
@@ -35,9 +21,18 @@ class Tree extends React.Component {
   }
 
   renderNode(entry, level, key) {
+    const className = classNames({
+      [style.nodeRow]: true,
+      [style.nodeRow_current]: this.props.currentEntry?.id === entry.id,
+    });
+    const nodeStyle = {
+      paddingLeft: level * 20,
+    };
     return (
-      <div className={style.node + ' tree__node_level' + level} key={key}>
-        <Row entry={entry} onClick={this.props.onClick} />
+      <div className={style.node} key={key}>
+        <div className={className} style={nodeStyle}>
+          <Row entry={entry} />
+        </div>
         {this.renderEntries(entry.children, level + 1)}
       </div>
     );

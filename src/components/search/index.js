@@ -1,33 +1,28 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useId } from '../../hooks/useId';
 import style from './style.css';
 
-class Search extends React.Component {
-  static displayName = 'Search';
+export const Search = ({value, onChange}) => {
+  const id = useId();
 
-  id = 'search-' + Math.random().toString(36).substring(5);
-
-  render() {
-    return (
-      <div className={style.form}>
-        <label className={style.label} htmlFor={this.id}>Search:</label>
-        <input className={style.entry} id={this.id} value={this.props.query} onChange={this.queryChanged}/>
-        <button className={style.reset} onClick={this.reset}>Reset</button>
-      </div>
-    );
-  }
-
-  queryChanged = (event) => {
-    if (this.props.onSearch) {
-      this.props.onSearch(event.target.value);
+  const handleChanged = useCallback((event) => {
+    if (onChange) {
+      onChange(event.target.value);
     }
-  };
+  }, [onChange]);
 
-  reset = (event) => {
+  const handleReset = useCallback((event) => {
     event.preventDefault();
-    if (this.props.onSearch) {
-      this.props.onSearch('');
+    if (onChange) {
+      onChange('');
     }
-  };
-}
+  }, [onChange]);
 
-export default Search;
+  return (
+    <div className={style.container}>
+      <label className={style.label} htmlFor={id}>{'\u{1f50e}'}</label>
+      <input className={style.entry} value={value} onChange={handleChanged} id={id} />
+      <button className={style.reset} title="Reset search" onClick={handleReset}>{'\u{1f5d9}'}</button>
+    </div>
+  );
+};

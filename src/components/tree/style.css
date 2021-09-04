@@ -1,16 +1,20 @@
 .tree {
   overflow: auto;
   max-height: 100%;
+  border-right: 1px solid #999;
 }
 
-.node {
-  padding-left: 20px;
+.node-row {
   cursor: pointer;
 }
-.row {
-  padding: 5px 0 5px 5px;
-}
-.row:hover {
-  background: #eee;
+.node-row.node-row_current,
+.node-row:hover {
+  background: #ddd;
 }
 
+.entry-link {
+  display: block;
+  padding: 5px 0 5px 5px;
+  color: #333;
+  text-decoration: none;
+}

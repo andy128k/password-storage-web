@@ -45,9 +45,12 @@ function decrypt(file, password) {
 }
 
 function parseXML(content) {
+  let id = 1;
+
   function parseEntry(tree) {
     let entry = {
-      type: tree.getAttribute('type')
+      type: tree.getAttribute('type'),
+      id: id++,
     };
     for (let i = 0; i < tree.childNodes.length; ++i) {
       const child = tree.childNodes.item(i);
