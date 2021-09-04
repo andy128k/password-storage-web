@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Page, ToolbarLink } from '../../widgets/page';
-import ErrorPanel from '../../widgets/error_panel';
 import { Search } from '../search';
 import Tree from '../tree';
 
@@ -33,7 +32,7 @@ function filterEntry(entry, predicate) {
 }
 
 export const FilePage = () => {
-  const {error, entries} = useSelector(state => state);
+  const {entries} = useSelector(state => state);
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredEntries = searchQuery ? filterEntries(entries, satisfies(searchQuery)) : entries;
@@ -45,7 +44,6 @@ export const FilePage = () => {
         <ToolbarLink to="/">&laquo;&nbsp;back</ToolbarLink>
       </>
     }>
-      <ErrorPanel error={error} />
       <Tree entries={filteredEntries} />
     </Page>
   );
