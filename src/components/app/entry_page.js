@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { useRouteMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Page, ToolbarLink } from '../../widgets/page';
 import EntryView from '../entry_view';
 
@@ -20,11 +20,10 @@ function findEntryById(entries, id) {
 }
 
 export const EntryPage = () => {
-  const match = useRouteMatch();
-  const id = +match.params.id;
+  const { id } = useParams();
   const {entries} = useSelector(state => state);
   const entry = useMemo(() => {
-    return findEntryById(entries, id);
+    return findEntryById(entries, +id);
   }, [entries, id]);
   return (
     <Page header={

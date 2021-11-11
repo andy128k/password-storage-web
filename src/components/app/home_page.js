@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Page } from '../../widgets/page';
 import { FileInput } from '../../widgets/file_input';
 import { setFile } from '../../actions';
@@ -10,12 +10,12 @@ import revelation from '../../libs/revelation';
 export const HomePage = () => {
   const [openingFile, setOpeningFile] = useState(null);
   const [error, setError] = useState(null);
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleOpen = useCallback((content, filename) => {
     setOpeningFile({content, filename});
-  }, [dispatch, history, setOpeningFile]);
+  }, [dispatch, setOpeningFile]);
 
   const handleEnterPassword = useCallback(password => {
     try {
@@ -24,11 +24,11 @@ export const HomePage = () => {
       dispatch(setFile(content, filename, entries));
       setOpeningFile(null);
       setError(null);
-      history.push('/file');
+      navigate('/file');
     } catch (error) {
       dispatch(setError(error));
     }
-  }, [openingFile, setFile, setError, history]);
+  }, [openingFile, setFile, setError, navigate]);
 
   const handleCancel = useCallback(() => {
     setOpeningFile(null);
