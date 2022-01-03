@@ -16,8 +16,8 @@ const EntryField = ({label, value}) => {
     <div className={style.row}>
       <div className={style.name}>{label}</div>
       <div className={style.value}>
+        <div className={style.content}>{value}</div>
         <span className={style.copy} onClick={handleCopy}>{copied ? '\u{1f5f8}' : '\u{1f4cb}'}</span>
-        {value}
       </div>
     </div>
   );

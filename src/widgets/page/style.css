@@ -58,6 +58,7 @@
 .link {
   display: inline-block;
   border: none;
+  border-radius: 6px;
   margin: 0;
   padding: 10px;
 
@@ -72,6 +73,7 @@
 }
 .button {
   border: none;
+  border-radius: 6px;
   margin: 0;
   padding: 10px;
 

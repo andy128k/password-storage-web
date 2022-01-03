@@ -15,12 +15,14 @@
   padding: 0.5em;
   margin: 0.5em 0 0;
   white-space: pre-wrap;
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.content {
+  flex-grow: 1;
 }
 .copy {
-  position: absolute;
-  top: 2px;
-  right: 2px;
   border: 1px solid #666;
   width: 20px;
   height: 20px;
