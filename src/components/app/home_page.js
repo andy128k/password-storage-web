@@ -15,7 +15,7 @@ export const HomePage = () => {
 
   const handleOpen = useCallback((content, filename) => {
     setOpeningFile({content, filename});
-  }, [dispatch, setOpeningFile]);
+  }, [setOpeningFile]);
 
   const handleEnterPassword = useCallback(password => {
     try {
@@ -28,7 +28,7 @@ export const HomePage = () => {
     } catch (error) {
       dispatch(setError(error));
     }
-  }, [openingFile, setFile, setError, navigate]);
+  }, [dispatch, openingFile, setError, navigate]);
 
   const handleCancel = useCallback(() => {
     setOpeningFile(null);
