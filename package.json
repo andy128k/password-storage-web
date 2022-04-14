@@ -37,7 +37,7 @@
     "html-webpack-plugin": "^5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27",
-    "react-test-renderer": "^17",
+    "react-test-renderer": "^18",
     "style-loader": "^3",
     "webpack": "^5",
     "webpack-cli": "^4",
