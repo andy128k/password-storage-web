@@ -36,7 +36,7 @@
     "favicons-webpack-plugin": "git+https://github.com/andy128k/favicons-webpack-plugin.git#favicons-7.0.0",
     "html-webpack-plugin": "^5",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27",
+    "jest": "^28",
     "react-test-renderer": "^18",
     "style-loader": "^3",
     "webpack": "^5",
