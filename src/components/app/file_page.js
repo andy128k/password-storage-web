@@ -6,32 +6,22 @@ import Tree from "../tree";
 
 function satisfies(query) {
   query = query.toLowerCase();
-  return (entry) => {
-    for (const key of Object.keys(entry)) {
-      if (
-        key !== "id" &&
-        key !== "children" &&
-        entry[key].toLowerCase().includes(query)
-      ) {
-        return true;
-      }
-    }
-    return false;
-  };
+  return (entry) =>
+    Object.entries(entry)
+      .filter(([key, _value]) => key !== "id" && key !== "children")
+      .some(([_key, value]) => value.toLowerCase().includes(query));
 }
 
-const identity = (v) => v;
-
 function filterEntries(entries, predicate) {
-  return entries.map((entry) => filterEntry(entry, predicate)).filter(identity);
+  return entries.flatMap((entry) => filterEntry(entry, predicate));
 }
 
 function filterEntry(entry, predicate) {
   const children = filterEntries(entry.children, predicate);
   if (children.length || predicate(entry)) {
-    return { ...entry, children };
+    return [{ ...entry, children }];
   } else {
-    return null;
+    return [];
   }
 }
 

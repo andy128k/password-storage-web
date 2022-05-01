@@ -23,7 +23,7 @@ module.exports = {
     "no-use-before-define": ["error", "nofunc"],
     eqeqeq: "warn",
     "no-alert": "warn",
-    "no-unused-vars": "error",
+    "no-unused-vars": ["error", { destructuredArrayIgnorePattern: "^_" }],
     "react/prop-types": "off",
     "react/jsx-no-undef": "error",
     "react/jsx-no-bind": "error",

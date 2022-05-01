@@ -4,16 +4,19 @@ import { useParams } from "react-router-dom";
 import { Page, ToolbarLink } from "../../widgets/page";
 import EntryView from "../entry_view";
 
-function findEntryById(entries, id) {
+function* traverse(entries) {
   for (let entry of entries) {
+    yield entry;
+    if (entry.children) {
+      yield* traverse(entry.children);
+    }
+  }
+}
+
+function findEntryById(entries, id) {
+  for (let entry of traverse(entries)) {
     if (entry.id === id) {
       return entry;
-    }
-    if (entry.children) {
-      let e = findEntryById(entry.children, id);
-      if (e) {
-        return e;
-      }
     }
   }
   return null;
