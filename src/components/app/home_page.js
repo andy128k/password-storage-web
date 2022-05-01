@@ -5,7 +5,7 @@ import { Page } from "../../widgets/page";
 import { FileInput } from "../../widgets/file_input";
 import { setFile } from "../../actions";
 import { AskPassword } from "../ask_password";
-import revelation from "../../libs/revelation";
+import { readRevelationFile } from "../../libs/revelation";
 
 export const HomePage = () => {
   const [openingFile, setOpeningFile] = useState(null);
@@ -24,7 +24,7 @@ export const HomePage = () => {
     (password) => {
       try {
         const { content, filename } = openingFile;
-        const entries = revelation.read(content, password);
+        const entries = readRevelationFile(content, password);
         dispatch(setFile(content, filename, entries));
         setOpeningFile(null);
         setError(null);

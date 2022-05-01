@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import EntryView from ".";
+import { EntryView } from ".";
 
 describe("EntryView", function () {
   function textNodes(node) {

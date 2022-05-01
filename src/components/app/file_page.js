@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { Search } from "../search";
-import Tree from "../tree";
+import { Tree } from "../tree";
 
 function satisfies(query) {
   query = query.toLowerCase();

@@ -85,13 +85,9 @@ function parseXML(content) {
   else return null;
 }
 
-function read(file, password) {
+export function readRevelationFile(file, password) {
   const xmlBuffer = decrypt(file, password);
   const xml = UTF8Decode(xmlBuffer);
   const entries = parseXML(xml);
   return entries;
 }
-
-export default {
-  read,
-};

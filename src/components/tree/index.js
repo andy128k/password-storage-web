@@ -9,7 +9,7 @@ const Row = ({ entry }) => (
   </Link>
 );
 
-class Tree extends React.Component {
+export class Tree extends React.Component {
   static displayName = "Tree";
 
   render() {
@@ -42,5 +42,3 @@ class Tree extends React.Component {
     );
   }
 }
-
-export default Tree;

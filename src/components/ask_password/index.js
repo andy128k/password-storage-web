@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import ErrorPanel from "../../widgets/error_panel";
+import { ErrorPanel } from "../../widgets/error_panel";
 import { useId } from "../../hooks/useId";
 import style from "./style.css";
 

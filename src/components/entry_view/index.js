@@ -27,7 +27,7 @@ const EntryField = ({ label, value }) => {
 
 const visibleField = (name) => !["children", "type", "id"].includes(name);
 
-const EntryView = ({ entry }) => {
+export const EntryView = ({ entry }) => {
   const fields = entry ? Object.keys(entry).filter(visibleField) : [];
   return (
     <div className={style.entryView}>
@@ -37,5 +37,3 @@ const EntryView = ({ entry }) => {
     </div>
   );
 };
-
-export default EntryView;
