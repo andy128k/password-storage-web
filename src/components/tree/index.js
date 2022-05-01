@@ -1,12 +1,16 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
+import classNames from "classnames";
 import { Link } from "react-router-dom";
-import style from './style.css';
+import style from "./style.css";
 
-const Row = ({entry}) => <Link to={`/entry/${entry.id}`} className={style.entryLink}>{entry.name}</Link>;
+const Row = ({ entry }) => (
+  <Link to={`/entry/${entry.id}`} className={style.entryLink}>
+    {entry.name}
+  </Link>
+);
 
 class Tree extends React.Component {
-  static displayName = 'Tree';
+  static displayName = "Tree";
 
   render() {
     return (

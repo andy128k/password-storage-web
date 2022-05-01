@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { HomePage } from './home_page';
-import { FilePage } from './file_page';
-import { EntryPage } from './entry_page';
+import { HomePage } from "./home_page";
+import { FilePage } from "./file_page";
+import { EntryPage } from "./entry_page";
 
 export const RootApp = () => (
   <HashRouter>

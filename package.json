@@ -8,7 +8,7 @@
     "secure",
     "vault"
   ],
-  "author": "Andrey Kutejko <andy128k@gmail.com> (http://andy128k.net)",
+  "author": "Andrey Kutejko <andy128k@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode development",
@@ -17,6 +17,7 @@
     "start": "webpack-dev-server --mode development",
     "test": "jest --config ./.jest.json",
     "test:watch": "jest --config ./.jest.json --watch",
+    "fmt": "prettier --write .",
     "lint": "eslint src"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "html-webpack-plugin": "^5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28",
+    "prettier": "^2.6.2",
     "react-test-renderer": "^18",
     "style-loader": "^3",
     "webpack": "^5",

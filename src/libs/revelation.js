@@ -1,9 +1,10 @@
-import { ECB, CBC } from 'aes-es';
-import pako from 'pako';
-import { UTF8Decode } from './utf8';
+import { ECB, CBC } from "aes-es";
+import pako from "pako";
+import { UTF8Decode } from "./utf8";
 
 function passwordBlock(password) {
-  let buf = new Array(32), i;
+  let buf = new Array(32),
+    i;
   for (i = 0; i < password.length && i < 32; ++i) {
     buf[i] = password.charCodeAt(i);
   }
@@ -31,12 +32,10 @@ function decrypt(file, password) {
   }
 
   const padlen = resultView[resultView.byteLength - 1];
-  if (padlen < 1 || padlen > 16)
-    throw new Error('Bad padlen ' + padlen + '.');
+  if (padlen < 1 || padlen > 16) throw new Error("Bad padlen " + padlen + ".");
 
   for (var i = resultView.byteLength - padlen; i < resultView.byteLength; ++i)
-    if (resultView[i] !== padlen)
-      throw new Error("padding is corrupted");
+    if (resultView[i] !== padlen) throw new Error("padding is corrupted");
 
   resultView = new Uint8Array(result, 0, result.byteLength - padlen);
   result = pako.inflate(resultView);
@@ -49,17 +48,17 @@ function parseXML(content) {
 
   function parseEntry(tree) {
     let entry = {
-      type: tree.getAttribute('type'),
+      type: tree.getAttribute("type"),
       id: id++,
     };
     for (let i = 0; i < tree.childNodes.length; ++i) {
       const child = tree.childNodes.item(i);
-      if (child.localName === 'name') {
+      if (child.localName === "name") {
         entry.name = child.textContent;
-      } else if (child.localName === 'description') {
+      } else if (child.localName === "description") {
         entry.description = child.textContent;
-      } else if (child.localName === 'field') {
-        const id = child.getAttribute('id');
+      } else if (child.localName === "field") {
+        const id = child.getAttribute("id");
         entry[id] = child.textContent;
       }
     }
@@ -73,19 +72,17 @@ function parseXML(content) {
     let result = [];
     for (let i = 0; i < tree.childNodes.length; ++i) {
       let node = tree.childNodes.item(i);
-      if (node.localName === 'entry')
-        result.push( parseEntry(node) );
+      if (node.localName === "entry") result.push(parseEntry(node));
     }
     return result;
   }
 
   var parser = new DOMParser();
-  var doc = parser.parseFromString(content, 'text/xml');
+  var doc = parser.parseFromString(content, "text/xml");
 
-  if (doc.documentElement.localName === 'revelationdata')
+  if (doc.documentElement.localName === "revelationdata")
     return parseChildren(doc.documentElement);
-  else
-    return null;
+  else return null;
 }
 
 function read(file, password) {
@@ -96,5 +93,5 @@ function read(file, password) {
 }
 
 export default {
-  read
+  read,
 };

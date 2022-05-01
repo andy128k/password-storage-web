@@ -20,7 +20,7 @@
   height: 40px;
   display: flex;
   justify-items: stretch;
-  background: #C08060;
+  background: #c08060;
 }
 .header > * {
   margin-left: 5px !important;
@@ -63,7 +63,7 @@
   padding: 10px;
 
   color: white;
-  background: #B07050;
+  background: #b07050;
   font-weight: bold;
   font-size: 1em;
   text-decoration: none;
@@ -78,14 +78,13 @@
   padding: 10px;
 
   color: white;
-  background: #B07050;
+  background: #b07050;
   font-weight: bold;
   font-size: 1em;
 }
 .button:active {
   background: #8d593f;
 }
-
 
 .content {
   flex-grow: 1;

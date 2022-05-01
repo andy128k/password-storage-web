@@ -1,12 +1,12 @@
 .container {
   margin: 40px auto;
-  box-shadow: 0 0 10px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
   background: #eee;
   max-width: 500px;
 }
 
 .title {
-  background: #C08060;
+  background: #c08060;
   color: white;
   padding: 10px;
 }
@@ -36,7 +36,7 @@
 .buttons > * {
   margin-left: 10px;
   padding: 8px 16px;
-  background: #C08060;
+  background: #c08060;
   border: #804020 1px solid;
   border-radius: 6px;
   color: #fff;

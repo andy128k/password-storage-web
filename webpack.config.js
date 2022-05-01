@@ -1,14 +1,14 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+var FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
-var title = 'PasswordStorage Web';
+var title = "PasswordStorage Web";
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    path: __dirname + '/public/',
-    publicPath: '/',
-    filename: 'index.js'
+    path: __dirname + "/public/",
+    publicPath: "/",
+    filename: "index.js",
   },
   module: {
     rules: [
@@ -20,30 +20,30 @@ module.exports = {
             loader: "css-loader",
             options: {
               modules: {
-                mode: 'local',
-                exportLocalsConvention: 'dashesOnly',
+                mode: "local",
+                exportLocalsConvention: "dashesOnly",
               },
             },
           },
-        ]
+        ],
       },
       {
         test: /\.js$/,
         loader: "babel-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
-    ]
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: title,
-      template: __dirname + '/template.html',
+      template: __dirname + "/template.html",
     }),
     new FaviconsWebpackPlugin({
-      logo: __dirname + '/password-storage.svg',
-      prefix: 'icons-[fullhash]/',
+      logo: __dirname + "/password-storage.svg",
+      prefix: "icons-[fullhash]/",
       inject: true,
-      background: '#fff',
+      background: "#fff",
       title: title,
       display: "standalone",
       online: false,
@@ -54,9 +54,9 @@ module.exports = {
         appleStartup: true,
         favicons: true,
         firefox: true,
-        windows: { background: '#da532c' },
+        windows: { background: "#da532c" },
         yandex: true,
-      }
+      },
     }),
   ],
   performance: {
@@ -65,7 +65,7 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: __dirname + '/public/',
+      directory: __dirname + "/public/",
     },
   },
 };
