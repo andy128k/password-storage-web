@@ -27,12 +27,14 @@ const EntryField = ({ label, value }) => {
 
 const visibleField = (name) => !["children", "type", "id"].includes(name);
 
+const tidyLabel = (label) => label.replace(/^(generic-)/, '');
+
 export const EntryView = ({ entry }) => {
   const fields = entry ? Object.keys(entry).filter(visibleField) : [];
   return (
     <div className={style.entryView}>
       {fields.map((field) => (
-        <EntryField key={field} label={field} value={entry[field]} />
+        <EntryField key={field} label={tidyLabel(field)} value={entry[field]} />
       ))}
     </div>
   );
