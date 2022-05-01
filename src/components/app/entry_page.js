@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { EntryView } from "../entry_view";
+import { useFile } from "../../reducers/content";
 
 function* traverse(entries) {
   for (let entry of entries) {
@@ -23,13 +23,22 @@ function findEntryById(entries, id) {
 }
 
 export const EntryPage = () => {
-  const { id } = useParams();
-  const { entries } = useSelector((state) => state);
+  const { fileId, entryId } = useParams();
+  const file = useFile(fileId);
   const entry = useMemo(() => {
-    return findEntryById(entries, +id);
-  }, [entries, id]);
+    return findEntryById(file?.entries ?? [], entryId);
+  }, [file, entryId]);
+
+  if (!entry) {
+    return <Navigate to={`/file/${fileId}`} replace />;
+  }
+
   return (
-    <Page header={<ToolbarLink to="/file">&laquo;&nbsp;back</ToolbarLink>}>
+    <Page
+      header={
+        <ToolbarLink to={`/file/${fileId}`}>&laquo;&nbsp;back</ToolbarLink>
+      }
+    >
       <EntryView entry={entry} />
     </Page>
   );

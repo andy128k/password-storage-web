@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useParams, Navigate } from "react-router-dom";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { Search } from "../search";
 import { Tree } from "../tree";
+import { useFile } from "../../reducers/content";
 
 function satisfies(query) {
   query = query.toLowerCase();
@@ -26,8 +27,15 @@ function filterEntry(entry, predicate) {
 }
 
 export const FilePage = () => {
-  const { entries } = useSelector((state) => state);
   const [searchQuery, setSearchQuery] = useState("");
+  const { fileId } = useParams();
+  const file = useFile(fileId);
+
+  if (!file) {
+    return <Navigate to="/" replace />;
+  }
+
+  const entries = file.entries;
 
   const filteredEntries = searchQuery
     ? filterEntries(entries, satisfies(searchQuery))
@@ -42,7 +50,7 @@ export const FilePage = () => {
         </>
       }
     >
-      <Tree entries={filteredEntries} />
+      <Tree file={file} entries={filteredEntries} />
     </Page>
   );
 };

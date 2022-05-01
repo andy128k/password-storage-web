@@ -1,5 +1,6 @@
 import { ECB, CBC } from "aes-es";
 import pako from "pako";
+import { generateId } from "./generate_id";
 import { UTF8Decode } from "./utf8";
 
 function passwordBlock(password) {
@@ -44,12 +45,10 @@ function decrypt(file, password) {
 }
 
 function parseXML(content) {
-  let id = 1;
-
   function parseEntry(tree) {
     let entry = {
       type: tree.getAttribute("type"),
-      id: id++,
+      id: generateId(),
     };
     for (let i = 0; i < tree.childNodes.length; ++i) {
       const child = tree.childNodes.item(i);

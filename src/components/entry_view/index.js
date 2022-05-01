@@ -27,7 +27,7 @@ const EntryField = ({ label, value }) => {
 
 const visibleField = (name) => !["children", "type", "id"].includes(name);
 
-const tidyLabel = (label) => label.replace(/^(generic-)/, '');
+const tidyLabel = (label) => label.replace(/^(generic-)/, "");
 
 export const EntryView = ({ entry }) => {
   const fields = entry ? Object.keys(entry).filter(visibleField) : [];

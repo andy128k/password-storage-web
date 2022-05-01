@@ -3,8 +3,8 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 import style from "./style.css";
 
-const Row = ({ entry }) => (
-  <Link to={`/entry/${entry.id}`} className={style.entryLink}>
+const Row = ({ file, entry }) => (
+  <Link to={`/file/${file.id}/entry/${entry.id}`} className={style.entryLink}>
     {entry.name}
   </Link>
 );
@@ -35,7 +35,7 @@ export class Tree extends React.Component {
     return (
       <div className={style.node} key={key}>
         <div className={className} style={nodeStyle}>
-          <Row entry={entry} />
+          <Row file={this.props.file} entry={entry} />
         </div>
         {this.renderEntries(entry.children, level + 1)}
       </div>

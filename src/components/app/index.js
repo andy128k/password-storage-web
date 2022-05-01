@@ -8,8 +8,8 @@ export const RootApp = () => (
   <HashRouter>
     <Routes>
       <Route exact path="/" element={<HomePage />} />
-      <Route path="/file" element={<FilePage />} />
-      <Route path="/entry/:id" element={<EntryPage />} />
+      <Route path="/file/:fileId" element={<FilePage />} />
+      <Route path="/file/:fileId/entry/:entryId" element={<EntryPage />} />
     </Routes>
   </HashRouter>
 );
