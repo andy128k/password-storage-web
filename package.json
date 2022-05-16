@@ -30,7 +30,7 @@
     "babel-loader": "^8",
     "css-loader": "^6",
     "eslint": "^8",
-    "eslint-plugin-jest": "^26.0",
+    "eslint-plugin-jest": "^26.2",
     "eslint-plugin-react": "^7",
     "eslint-plugin-react-hooks": "^4.4.0",
     "favicons": "^7.0.0-beta.1",
