@@ -38,7 +38,7 @@
     "html-webpack-plugin": "^5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28",
-    "prettier": "^2.6.2",
+    "prettier": "^2.7.0",
     "react-test-renderer": "^18",
     "style-loader": "^3",
     "webpack": "^5",
