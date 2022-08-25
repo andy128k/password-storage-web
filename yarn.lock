@@ -3093,7 +3093,8 @@ fastq@^1.6.0:
 
 "favicons-webpack-plugin@git+https://github.com/andy128k/favicons-webpack-plugin.git#favicons-7.0.0":
   version "5.0.2"
-  resolved "git+https://github.com/andy128k/favicons-webpack-plugin.git#5593933ce9a7e83b14db401b657b3b7501ad33b5"
+  uid "591b2e7bd16d8a71a5616bd1194ac29dfe8e7a99"
+  resolved "git+https://github.com/andy128k/favicons-webpack-plugin.git#591b2e7bd16d8a71a5616bd1194ac29dfe8e7a99"
   dependencies:
     "@types/favicons" "5.5.0"
     find-root "^1.1.0"
