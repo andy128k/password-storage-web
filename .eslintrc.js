@@ -4,10 +4,12 @@ module.exports = {
     node: true,
     es6: true,
   },
-  parser: "@babel/eslint-parser",
   parserOptions: {
+    ecmaVersion: 2022,
+    ecmaFeatures: {
+      jsx: true,
+    },
     sourceType: "module",
-    jsx: true,
   },
   plugins: ["react", "jest"],
   extends: [

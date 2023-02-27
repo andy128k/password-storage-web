@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: "babel-loader",
+        loader: "swc-loader",
         exclude: /node_modules/,
       },
     ],
