@@ -1,44 +1,107 @@
-import React from "react";
-import classNames from "classnames";
+import React, { useCallback, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import style from "./style.css";
 
-const Row = ({ file, entry }) => (
-  <Link to={`/file/${file.id}/entry/${entry.id}`} className={style.entryLink}>
-    {entry.name}
-  </Link>
-);
+const KEY_UP = 38;
+const KEY_DOWN = 40;
+const KEY_HOME = 36;
+const KEY_END = 35;
 
-export class Tree extends React.Component {
-  static displayName = "Tree";
+const Node = ({ file, entry, level, index, onSetRef, onKeyDown }) => {
+  const handleRef = useCallback(
+    (node) => {
+      onSetRef(node, index);
+    },
+    [index, onSetRef]
+  );
 
-  render() {
-    return (
-      <div className={style.tree}>
-        {this.renderEntries(this.props.entries, 0)}
-      </div>
-    );
+  const keyDown = useCallback(
+    (event) => {
+      const { keyCode } = event;
+      if ([KEY_UP, KEY_DOWN, KEY_HOME, KEY_END].includes(keyCode)) {
+        event.preventDefault();
+        event.stopPropagation();
+        onKeyDown(keyCode, index, entry);
+      } else {
+        console.log(keyCode);
+      }
+    },
+    [index, entry, onKeyDown]
+  );
+
+  return (
+    <div
+      className={style.nodeRow}
+      style={{ paddingLeft: level * 20 + 5 }}
+      onKeyDown={keyDown}
+    >
+      <Link
+        to={`/file/${file.id}/entry/${entry.id}`}
+        className={style.entryLink}
+        ref={handleRef}
+      >
+        {entry.name}
+      </Link>
+    </div>
+  );
+};
+
+function flattenEntries(entries) {
+  function traverse(entries, level, result) {
+    for (const entry of entries) {
+      result.push({ entry, level });
+      if (entry?.children?.length) {
+        traverse(entry.children, level + 1, result);
+      }
+    }
   }
 
-  renderEntries(entries, level) {
-    return entries.map((entry, key) => this.renderNode(entry, level, key));
-  }
-
-  renderNode(entry, level, key) {
-    const className = classNames({
-      [style.nodeRow]: true,
-      [style.nodeRow_current]: this.props.currentEntry?.id === entry.id,
-    });
-    const nodeStyle = {
-      paddingLeft: level * 20,
-    };
-    return (
-      <div className={style.node} key={key}>
-        <div className={className} style={nodeStyle}>
-          <Row file={this.props.file} entry={entry} />
-        </div>
-        {this.renderEntries(entry.children, level + 1)}
-      </div>
-    );
-  }
+  const result = [];
+  traverse(entries, 0, result);
+  return result;
 }
+
+export const Tree = ({ entries, file }) => {
+  const nodes = useRef([]);
+  const setNodeRef = useCallback(
+    (node, index) => {
+      nodes.current[index] = node;
+    },
+    [nodes]
+  );
+
+  const keyDown = useCallback(
+    (keyCode, index) => {
+      let n = nodes.current;
+      if (keyCode === KEY_UP) {
+        n?.[index - 1]?.focus();
+      } else if (keyCode === KEY_DOWN) {
+        n?.[index + 1]?.focus();
+      } else if (keyCode === KEY_HOME) {
+        n?.[0]?.focus();
+      } else if (keyCode === KEY_END) {
+        n?.[n.length - 1]?.focus();
+      }
+    },
+    [nodes]
+  );
+  useEffect(() => {
+    nodes?.[0]?.focus();
+  }, []);
+
+  return (
+    <div className={style.tree} onKeyDown={keyDown}>
+      {flattenEntries(entries).map(({ entry, level }, index) => (
+        <Node
+          key={entry.id}
+          file={file}
+          entry={entry}
+          level={level}
+          index={index}
+          onSetRef={setNodeRef}
+          onKeyDown={keyDown}
+        />
+      ))}
+    </div>
+  );
+};

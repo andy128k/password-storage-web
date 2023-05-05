@@ -6,15 +6,23 @@
 
 .node-row {
   cursor: pointer;
+  padding: 5px;
 }
-.node-row.node-row_current,
+
 .node-row:hover {
   background: #ddd;
 }
 
-.entry-link {
-  display: block;
-  padding: 5px 0 5px 5px;
-  color: #333;
+.node-row:focus-within {
+  background: #48f;
+}
+
+.node-row a {
+  outline: none;
   text-decoration: none;
+  color: #333;
+}
+
+.node-row a:focus {
+  color: #fff;
 }
