@@ -20,7 +20,7 @@ export const HomePage = () => {
     (content, filename) => {
       setOpeningFile({ content, filename });
     },
-    [setOpeningFile]
+    [setOpeningFile],
   );
 
   const handleEnterPassword = useCallback(
@@ -38,7 +38,7 @@ export const HomePage = () => {
         setError(error);
       }
     },
-    [dispatch, openingFile, setError, navigate]
+    [dispatch, openingFile, setError, navigate],
   );
 
   const handleCancel = useCallback(() => {

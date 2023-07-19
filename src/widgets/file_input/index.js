@@ -21,7 +21,7 @@ export const FileInput = ({ onOpen }) => {
         onOpen(content, filename);
       }
     },
-    [onOpen]
+    [onOpen],
   );
 
   return (

@@ -30,7 +30,7 @@ export function UTF8Decode(byteArray) {
         char2 = byteArray[i++];
         char3 = byteArray[i++];
         out += String.fromCharCode(
-          ((c & 0x0f) << 12) | ((char2 & 0x3f) << 6) | ((char3 & 0x3f) << 0)
+          ((c & 0x0f) << 12) | ((char2 & 0x3f) << 6) | ((char3 & 0x3f) << 0),
         );
         break;
     }

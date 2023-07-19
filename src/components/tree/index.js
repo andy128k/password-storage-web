@@ -12,7 +12,7 @@ const Node = ({ file, entry, level, index, onSetRef, onKeyDown }) => {
     (node) => {
       onSetRef(node, index);
     },
-    [index, onSetRef]
+    [index, onSetRef],
   );
 
   const keyDown = useCallback(
@@ -26,7 +26,7 @@ const Node = ({ file, entry, level, index, onSetRef, onKeyDown }) => {
         console.log(keyCode);
       }
     },
-    [index, entry, onKeyDown]
+    [index, entry, onKeyDown],
   );
 
   return (
@@ -67,7 +67,7 @@ export const Tree = ({ entries, file }) => {
     (node, index) => {
       nodes.current[index] = node;
     },
-    [nodes]
+    [nodes],
   );
 
   const keyDown = useCallback(
@@ -83,7 +83,7 @@ export const Tree = ({ entries, file }) => {
         n?.[n.length - 1]?.focus();
       }
     },
-    [nodes]
+    [nodes],
   );
   useEffect(() => {
     nodes?.[0]?.focus();

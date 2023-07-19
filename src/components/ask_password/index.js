@@ -11,7 +11,7 @@ export const AskPassword = ({ filename, error, onEnterPassword, onCancel }) => {
     (event) => {
       setPassword(event.target.value);
     },
-    [setPassword]
+    [setPassword],
   );
 
   const handleSubmit = useCallback(
@@ -21,7 +21,7 @@ export const AskPassword = ({ filename, error, onEnterPassword, onCancel }) => {
       onEnterPassword(password);
       return false;
     },
-    [password, onEnterPassword]
+    [password, onEnterPassword],
   );
 
   return (

@@ -23,7 +23,7 @@ describe("EntryView", function () {
 
   it("renders multiple fields", function () {
     const component = renderer.create(
-      <EntryView entry={{ name: "John", surname: "Doe" }} />
+      <EntryView entry={{ name: "John", surname: "Doe" }} />,
     );
     expect(textNodes(component.root)).toStrictEqual([
       "name",

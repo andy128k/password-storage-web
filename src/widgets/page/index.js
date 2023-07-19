@@ -35,7 +35,7 @@ export const ToolbarButton = ({ title, onClick, param, children }) => {
         onClick(param);
       }
     },
-    [onClick, param]
+    [onClick, param],
   );
 
   return (

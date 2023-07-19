@@ -11,7 +11,7 @@ export const Search = ({ value, onChange }) => {
         onChange(event.target.value);
       }
     },
-    [onChange]
+    [onChange],
   );
 
   const handleReset = useCallback(
@@ -21,7 +21,7 @@ export const Search = ({ value, onChange }) => {
         onChange("");
       }
     },
-    [onChange]
+    [onChange],
   );
 
   return (
