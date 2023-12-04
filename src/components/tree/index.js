@@ -32,7 +32,7 @@ const Node = ({ file, entry, level, index, onSetRef, onKeyDown }) => {
   return (
     <div
       className={style.nodeRow}
-      style={{ paddingLeft: level * 20 + 5 }}
+      style={{ paddingLeft: level * 40 + 5 }}
       onKeyDown={keyDown}
     >
       <Link
