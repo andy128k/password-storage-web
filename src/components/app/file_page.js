@@ -3,7 +3,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { Search } from "../search";
 import { Tree } from "../tree";
-import { useFile } from "../../reducers/content";
+import { useFile } from "../../contexts/content";
 
 function satisfies(query) {
   query = query.toLowerCase();

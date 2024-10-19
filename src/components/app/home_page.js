@@ -1,9 +1,8 @@
 import React, { useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useContent } from "../../contexts/content";
 import { Page } from "../../widgets/page";
 import { FileInput } from "../../widgets/file_input";
-import { openFile, useFiles } from "../../reducers/content";
 import { AskPassword } from "../ask_password";
 import { readRevelationFile } from "../../libs/revelation";
 import { generateId } from "../../libs/generate_id";
@@ -12,9 +11,8 @@ import { FileLink } from "../../widgets/file_link";
 export const HomePage = () => {
   const [openingFile, setOpeningFile] = useState(null);
   const [error, setError] = useState(null);
-  const files = useFiles();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const { files, addFile } = useContent();
 
   const handleOpen = useCallback(
     (content, filename) => {
@@ -30,7 +28,7 @@ export const HomePage = () => {
         const entries = readRevelationFile(content, password);
         const fileId = generateId();
         const file = { id: fileId, content, filename, entries };
-        dispatch(openFile(file));
+        addFile(file);
         setOpeningFile(null);
         setError(null);
         navigate(`/file/${fileId}`);
@@ -38,7 +36,7 @@ export const HomePage = () => {
         setError(error);
       }
     },
-    [dispatch, openingFile, setError, navigate],
+    [addFile, openingFile, setError, navigate],
   );
 
   const handleCancel = useCallback(() => {

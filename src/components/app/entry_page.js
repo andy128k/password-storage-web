@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { EntryView } from "../entry_view";
-import { useFile } from "../../reducers/content";
+import { useFile } from "../../contexts/content";
 
 function* traverse(entries) {
   for (let entry of entries) {
