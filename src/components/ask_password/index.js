@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useId } from "react";
 import { ErrorPanel } from "../../widgets/error_panel";
-import { useId } from "../../hooks/useId";
 import * as style from "./style.css";
 
 export const AskPassword = ({ filename, error, onEnterPassword, onCancel }) => {
