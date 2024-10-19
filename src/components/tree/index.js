@@ -59,28 +59,22 @@ function flattenEntries(entries) {
 
 export const Tree = ({ entries, file }) => {
   const nodes = useRef([]);
-  const setNodeRef = useCallback(
-    (node, index) => {
-      nodes.current[index] = node;
-    },
-    [nodes],
-  );
+  const setNodeRef = useCallback((node, index) => {
+    nodes.current[index] = node;
+  }, []);
 
-  const keyDown = useCallback(
-    (keyCode, index) => {
-      let n = nodes.current;
-      if (keyCode === KEY_UP) {
-        n?.[index - 1]?.focus();
-      } else if (keyCode === KEY_DOWN) {
-        n?.[index + 1]?.focus();
-      } else if (keyCode === KEY_HOME) {
-        n?.[0]?.focus();
-      } else if (keyCode === KEY_END) {
-        n?.[n.length - 1]?.focus();
-      }
-    },
-    [nodes],
-  );
+  const keyDown = useCallback((keyCode, index) => {
+    const n = nodes.current;
+    if (keyCode === KEY_UP) {
+      n?.[index - 1]?.focus();
+    } else if (keyCode === KEY_DOWN) {
+      n?.[index + 1]?.focus();
+    } else if (keyCode === KEY_HOME) {
+      n?.[0]?.focus();
+    } else if (keyCode === KEY_END) {
+      n?.[n.length - 1]?.focus();
+    }
+  }, []);
   useEffect(() => {
     nodes?.[0]?.focus();
   }, []);

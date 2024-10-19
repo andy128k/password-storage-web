@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContent } from "../../contexts/content";
-import { Page } from "../../widgets/page";
-import { FileInput } from "../../widgets/file_input";
-import { AskPassword } from "../ask_password";
-import { readRevelationFile } from "../../libs/revelation";
 import { generateId } from "../../libs/generate_id";
+import { readRevelationFile } from "../../libs/revelation";
+import { FileInput } from "../../widgets/file_input";
 import { FileLink } from "../../widgets/file_link";
+import { Page } from "../../widgets/page";
+import { AskPassword } from "../ask_password";
 
 export const HomePage = () => {
   const [openingFile, setOpeningFile] = useState(null);
@@ -14,12 +14,9 @@ export const HomePage = () => {
   const navigate = useNavigate();
   const { files, addFile } = useContent();
 
-  const handleOpen = useCallback(
-    (content, filename) => {
-      setOpeningFile({ content, filename });
-    },
-    [setOpeningFile],
-  );
+  const handleOpen = useCallback((content, filename) => {
+    setOpeningFile({ content, filename });
+  }, []);
 
   const handleEnterPassword = useCallback(
     (password) => {
@@ -36,13 +33,13 @@ export const HomePage = () => {
         setError(error);
       }
     },
-    [addFile, openingFile, setError, navigate],
+    [addFile, openingFile, navigate],
   );
 
   const handleCancel = useCallback(() => {
     setOpeningFile(null);
     setError(null);
-  }, [setOpeningFile]);
+  }, []);
 
   return (
     <Page>

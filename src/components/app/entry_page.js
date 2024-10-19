@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
+import { useFile } from "../../contexts/content";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { EntryView } from "../entry_view";
-import { useFile } from "../../contexts/content";
 
 function* traverse(entries) {
-  for (let entry of entries) {
+  for (const entry of entries) {
     yield entry;
     if (entry.children) {
       yield* traverse(entry.children);
@@ -14,7 +14,7 @@ function* traverse(entries) {
 }
 
 function findEntryById(entries, id) {
-  for (let entry of traverse(entries)) {
+  for (const entry of traverse(entries)) {
     if (entry.id === id) {
       return entry;
     }

@@ -6,12 +6,9 @@ export const AskPassword = ({ filename, error, onEnterPassword, onCancel }) => {
   const id = useId("password");
   const [password, setPassword] = useState("");
 
-  const handleChange = useCallback(
-    (event) => {
-      setPassword(event.target.value);
-    },
-    [setPassword],
-  );
+  const handleChange = useCallback((event) => {
+    setPassword(event.target.value);
+  }, []);
 
   const handleSubmit = useCallback(
     (event) => {
@@ -39,6 +36,7 @@ export const AskPassword = ({ filename, error, onEnterPassword, onCancel }) => {
           type="password"
           value={password}
           onChange={handleChange}
+          // biome-ignore lint/a11y/noAutofocus: autoFocus is actually recommended for use in dialogs https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
           autoFocus
           autoComplete="off"
           id={id}

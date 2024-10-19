@@ -1,7 +1,7 @@
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-var FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
-var title = "PasswordStorage Web";
+const title = "PasswordStorage Web";
 
 module.exports = {
   entry: "./src/index.js",

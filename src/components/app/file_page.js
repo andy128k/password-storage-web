@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
+import { useFile } from "../../contexts/content";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { Search } from "../search";
 import { Tree } from "../tree";
-import { useFile } from "../../contexts/content";
 
 function satisfies(query) {
-  query = query.toLowerCase();
+  const queryLC = query.toLowerCase();
   return (entry) =>
     Object.entries(entry)
       .filter(([key, _value]) => key !== "id" && key !== "children")
-      .some(([_key, value]) => value.toLowerCase().includes(query));
+      .some(([_key, value]) => value.toLowerCase().includes(queryLC));
 }
 
 function filterEntries(entries, predicate) {
