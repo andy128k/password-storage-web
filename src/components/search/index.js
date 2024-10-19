@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { useId } from "../../hooks/useId";
-import style from "./style.css";
+import * as style from "./style.css";
 
 export const Search = ({ value, onChange }) => {
   const id = useId();

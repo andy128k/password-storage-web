@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import style from "./style.css";
+import * as style from "./style.css";
 
 const KEY_UP = 38;
 const KEY_DOWN = 40;
@@ -35,11 +35,7 @@ const Node = ({ file, entry, level, index, onSetRef, onKeyDown }) => {
       style={{ paddingLeft: level * 40 + 5 }}
       onKeyDown={keyDown}
     >
-      <Link
-        to={`/file/${file.id}/entry/${entry.id}`}
-        className={style.entryLink}
-        ref={handleRef}
-      >
+      <Link to={`/file/${file.id}/entry/${entry.id}`} ref={handleRef}>
         {entry.name}
       </Link>
     </div>

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { sleep } from "../../libs/sleep";
-import style from "./style.css";
+import * as style from "./style.css";
 
 const EntryField = ({ label, value }) => {
   const [copied, setCopied] = useState(false);

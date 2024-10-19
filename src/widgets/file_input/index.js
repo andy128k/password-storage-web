@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import style from "./style.css";
+import * as style from "./style.css";
 
 function readFile(file) {
   return new Promise((resolve) => {
