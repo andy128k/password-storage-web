@@ -6,19 +6,14 @@ export const Search = ({ value, onChange }) => {
 
   const handleChanged = useCallback(
     (event) => {
-      if (onChange) {
-        onChange(event.target.value);
-      }
+      onChange(event.target.value);
     },
     [onChange],
   );
 
   const handleReset = useCallback(
     (event) => {
-      event.preventDefault();
-      if (onChange) {
-        onChange("");
-      }
+      onChange("");
     },
     [onChange],
   );
@@ -35,6 +30,7 @@ export const Search = ({ value, onChange }) => {
         id={id}
       />
       <button
+        type="button"
         className={style.reset}
         title="Reset search"
         onClick={handleReset}

@@ -30,16 +30,18 @@ export const ToolbarLink = ({ to, children }) => (
 export const ToolbarButton = ({ title, onClick, param, children }) => {
   const handleClick = useCallback(
     (event) => {
-      event.preventDefault();
-      if (onClick) {
-        onClick(param);
-      }
+      onClick(param);
     },
     [onClick, param],
   );
 
   return (
-    <button className={style.button} title={title} onClick={handleClick}>
+    <button
+      type="button"
+      className={style.button}
+      title={title}
+      onClick={handleClick}
+    >
       {children}
     </button>
   );
