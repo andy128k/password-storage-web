@@ -40,7 +40,7 @@ export const Search = ({ value, onChange }) => {
         title="Reset search"
         onClick={handleReset}
       >
-        {"\u{1f5d9}"}
+        {"\u{2a2f}"}
       </button>
     </div>
   );
