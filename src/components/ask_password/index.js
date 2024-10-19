@@ -24,7 +24,7 @@ export const AskPassword = ({ filename, error, onEnterPassword, onCancel }) => {
   );
 
   return (
-    <div className={style.container}>
+    <dialog className={style.dialog} open>
       <div className={style.title}>
         Opening <em>{filename}</em>
       </div>
@@ -50,6 +50,6 @@ export const AskPassword = ({ filename, error, onEnterPassword, onCancel }) => {
           <input type="submit" value="OK" />
         </div>
       </form>
-    </div>
+    </dialog>
   );
 };
