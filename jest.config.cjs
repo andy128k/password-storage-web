@@ -7,6 +7,8 @@ module.exports = {
     "\\.css$": "identity-obj-proxy",
   },
 
+  testEnvironment: "jsdom",
+
   collectCoverage: true,
   collectCoverageFrom: ["src/**/*.js", "!src/tests/**/*.js"],
   coverageDirectory: "<rootDir>/coverage",

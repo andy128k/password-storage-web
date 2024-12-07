@@ -1,35 +1,26 @@
+import { render } from "@testing-library/react";
 import React from "react";
-import renderer from "react-test-renderer";
 import { EntryView } from ".";
 
 describe("EntryView", () => {
-  function textNodes(node) {
-    return node
-      .findAllByType("div")
-      .flatMap((div) => div.children)
-      .filter((node) => typeof node === "string");
-  }
-
   it("renders empty", () => {
-    const component = renderer.create(<EntryView entry={null} />);
-    const tree = component.toJSON();
-    expect(tree.children).toBeNull();
+    const { container } = render(<EntryView entry={null} />);
+    expect(container.textContent).toBe("");
   });
 
   it("renders single field", () => {
-    const component = renderer.create(<EntryView entry={{ name: "value" }} />);
-    expect(textNodes(component.root)).toStrictEqual(["name", "value"]);
+    const { getByText } = render(<EntryView entry={{ name: "value" }} />);
+    expect(getByText("name")).toBeDefined();
+    expect(getByText("value")).toBeDefined();
   });
 
   it("renders multiple fields", () => {
-    const component = renderer.create(
+    const { getByText } = render(
       <EntryView entry={{ name: "John", surname: "Doe" }} />,
     );
-    expect(textNodes(component.root)).toStrictEqual([
-      "name",
-      "John",
-      "surname",
-      "Doe",
-    ]);
+    expect(getByText("name")).toBeDefined();
+    expect(getByText("Doe")).toBeDefined();
+    expect(getByText("surname")).toBeDefined();
+    expect(getByText("John")).toBeDefined();
   });
 });
