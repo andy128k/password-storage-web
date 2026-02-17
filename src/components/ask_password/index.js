@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useId } from "react";
+import React, { useCallback, useId, useState } from "react";
 import { ErrorPanel } from "../../widgets/error_panel";
 import * as style from "./style.css";
 
@@ -36,7 +36,6 @@ export const AskPassword = ({ filename, error, onEnterPassword, onCancel }) => {
           type="password"
           value={password}
           onChange={handleChange}
-          // biome-ignore lint/a11y/noAutofocus: autoFocus is actually recommended for use in dialogs https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
           autoFocus
           autoComplete="off"
           id={id}
