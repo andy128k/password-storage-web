@@ -26,5 +26,8 @@
         "noStaticElementInteractions": "warn"
       }
     }
+  },
+  "javascript": {
+    "jsxRuntime": "reactClassic"
   }
 }

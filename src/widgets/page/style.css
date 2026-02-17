@@ -16,15 +16,12 @@
 .header {
   flex-grow: 0;
   flex-shrink: 0;
-  padding: 10px 5px;
+  padding: 10px;
+  gap: 10px;
   height: 40px;
   display: flex;
   justify-items: stretch;
   background: #c08060;
-}
-.header > * {
-  margin-left: 5px !important;
-  margin-right: 5px !important;
 }
 
 .title {

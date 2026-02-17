@@ -12,7 +12,7 @@ export const Search = ({ value, onChange }) => {
   );
 
   const handleReset = useCallback(
-    (event) => {
+    (_event) => {
       onChange("");
     },
     [onChange],

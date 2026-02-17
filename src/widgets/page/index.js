@@ -29,7 +29,7 @@ export const ToolbarLink = ({ to, children }) => (
 
 export const ToolbarButton = ({ title, onClick, param, children }) => {
   const handleClick = useCallback(
-    (event) => {
+    (_event) => {
       onClick(param);
     },
     [onClick, param],
