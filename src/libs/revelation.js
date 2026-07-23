@@ -1,5 +1,5 @@
 import { CBC, ECB } from "aes-es";
-import pako from "pako";
+import { inflate } from "pako";
 import { generateId } from "./generate_id";
 import { UTF8Decode } from "./utf8";
 
@@ -44,7 +44,7 @@ function decrypt(file, password) {
   }
 
   resultView = new Uint8Array(result, 0, result.byteLength - padlen);
-  return pako.inflate(resultView);
+  return inflate(resultView);
 }
 
 function parseXML(content) {

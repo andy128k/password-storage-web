@@ -37,12 +37,12 @@
     "swc-loader": "^0.2.3",
     "webpack": "^5",
     "webpack-cli": "^7.0.2",
-    "webpack-dev-server": "^5.0.4"
+    "webpack-dev-server": "^6.0.0"
   },
   "dependencies": {
     "aes-es": "^3",
     "classnames": "^2.3.1",
-    "pako": "^2",
+    "pako": "^3.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.0.2"
