@@ -1,8 +1,11 @@
 {
+  "$schema": "https://swc.rs/schema.json",
   "jsc": {
     "parser": {
       "syntax": "ecmascript",
       "jsx": true
-    }
-  }
+    },
+    "target": "es2024"
+  },
+  "minify": true
 }
