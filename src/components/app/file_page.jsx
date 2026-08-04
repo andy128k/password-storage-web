@@ -1,5 +1,5 @@
+import { Navigate, useParams } from "@tanstack/react-router";
 import React, { useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
 import { useFile } from "../../contexts/content";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { Search } from "../search";
@@ -28,7 +28,7 @@ function filterEntry(entry, predicate) {
 
 export const FilePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { fileId } = useParams();
+  const { fileId } = useParams({ from: "/file/$fileId" });
   const file = useFile(fileId);
 
   if (!file) {

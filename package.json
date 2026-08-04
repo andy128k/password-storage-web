@@ -10,6 +10,8 @@
   ],
   "author": "Andrey Kutejko <andy128k@gmail.com>",
   "license": "MIT",
+  "private": true,
+  "type": "module",
   "scripts": {
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
@@ -26,6 +28,9 @@
     "@swc/jest": "^0.2.24",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0",
+    "@types/node": "^26.1.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
     "css-loader": "^7.1.2",
     "favicons": "^7.0.0",
     "favicons-webpack-plugin": "^6",
@@ -40,11 +45,13 @@
     "webpack-dev-server": "^6.0.0"
   },
   "dependencies": {
+    "@tanstack/react-devtools": "^0.10.9",
+    "@tanstack/react-router": "^1.170.18",
+    "@tanstack/react-router-devtools": "^1.167.0",
     "aes-es": "^3",
     "classnames": "^2.3.1",
     "pako": "^3.0.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-router-dom": "^7.0.2"
+    "react-dom": "^19.0.0"
   }
 }

@@ -1,5 +1,5 @@
+import { useNavigate } from "@tanstack/react-router";
 import React, { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useContent } from "../../contexts/content";
 import { generateId } from "../../libs/generate_id";
 import { readRevelationFile } from "../../libs/revelation";
@@ -28,7 +28,7 @@ export const HomePage = () => {
         addFile(file);
         setOpeningFile(null);
         setError(null);
-        navigate(`/file/${fileId}`);
+        navigate({ to: "/file/$fileId", params: { fileId } });
       } catch (error) {
         setError(error);
       }

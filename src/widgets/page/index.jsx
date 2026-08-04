@@ -1,6 +1,6 @@
+import { Link } from "@tanstack/react-router";
 import classNames from "classnames";
 import React, { useCallback } from "react";
-import { Link } from "react-router-dom";
 import * as style from "./style.module.css";
 
 export const Page = ({ header, children }) => (
@@ -21,8 +21,8 @@ export const Page = ({ header, children }) => (
   </div>
 );
 
-export const ToolbarLink = ({ to, children }) => (
-  <Link className={style.link} to={to}>
+export const ToolbarLink = ({ to, params, children }) => (
+  <Link className={style.link} to={to} params={params}>
     {children}
   </Link>
 );

@@ -1,10 +1,12 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+import FaviconsWebpackPlugin from "favicons-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const title = "PasswordStorage Web";
 
-module.exports = {
-  entry: "./src/index.jsx",
+const __dirname = import.meta.dirname;
+
+export default {
+  entry: "./src/index.tsx",
   output: {
     path: __dirname + "/public/",
     publicPath: "/",
@@ -28,14 +30,14 @@ module.exports = {
         ],
       },
       {
-        test: /\.js(x?)$/,
+        test: /\.(j|t)s(x?)$/,
         loader: "swc-loader",
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({

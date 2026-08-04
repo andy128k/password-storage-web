@@ -1,7 +1,7 @@
 import { CBC, ECB } from "aes-es";
 import { inflate } from "pako";
-import { generateId } from "./generate_id";
-import { UTF8Decode } from "./utf8";
+import { generateId } from "./generate_id.js";
+import { UTF8Decode } from "./utf8.js";
 
 function makeBlock(text) {
   const buf = new Array(32);

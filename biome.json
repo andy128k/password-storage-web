@@ -6,7 +6,13 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**", "!coverage", "!dist", "!public"]
+    "includes": [
+      "**",
+      "!coverage",
+      "!dist",
+      "!public",
+      "!**/src/routeTree.gen.ts"
+    ]
   },
   "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "formatter": {

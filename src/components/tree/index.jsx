@@ -1,5 +1,5 @@
+import { Link } from "@tanstack/react-router";
 import React, { useCallback, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import * as style from "./style.module.css";
 
 const KEY_UP = 38;
@@ -35,7 +35,11 @@ const Node = ({ file, entry, level, index, onSetRef, onKeyDown }) => {
       style={{ paddingLeft: level * 40 + 5 }}
       onKeyDown={keyDown}
     >
-      <Link to={`/file/${file.id}/entry/${entry.id}`} ref={handleRef}>
+      <Link
+        to="/file/$fileId/entry/$entryId"
+        params={{ fileId: file.id, entryId: entry.id }}
+        ref={handleRef}
+      >
         {entry.name}
       </Link>
     </div>
