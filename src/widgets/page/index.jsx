@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
-import * as style from "./style.css";
+import * as style from "./style.module.css";
 
 export const Page = ({ header, children }) => (
   <div className={style.page}>

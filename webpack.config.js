@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.module\.css$/,
         use: [
           { loader: "style-loader" },
           {

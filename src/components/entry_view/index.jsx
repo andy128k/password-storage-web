@@ -1,6 +1,6 @@
 import React from "react";
 import { CopyToClipboardButton } from "../../widgets/copy_to_clipboard_button";
-import * as style from "./style.css";
+import * as style from "./style.module.css";
 
 const EntryField = ({ label, value }) => {
   return (

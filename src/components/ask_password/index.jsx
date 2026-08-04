@@ -1,6 +1,6 @@
 import React, { useCallback, useId, useState } from "react";
 import { ErrorPanel } from "../../widgets/error_panel";
-import * as style from "./style.css";
+import * as style from "./style.module.css";
 
 export const AskPassword = ({ filename, error, onEnterPassword, onCancel }) => {
   const id = useId("password");

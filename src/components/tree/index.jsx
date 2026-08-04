@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import * as style from "./style.css";
+import * as style from "./style.module.css";
 
 const KEY_UP = 38;
 const KEY_DOWN = 40;

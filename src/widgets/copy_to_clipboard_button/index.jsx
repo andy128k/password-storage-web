@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { sleep } from "../../libs/sleep";
-import * as style from "./style.css";
+import * as style from "./style.module.css";
 
 export const CopyToClipboardButton = ({ value }) => {
   const [copied, setCopied] = useState(false);
