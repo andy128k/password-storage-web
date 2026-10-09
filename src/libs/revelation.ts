@@ -1,11 +1,11 @@
 import { CBC, ECB } from "aes-es";
 import { inflate } from "pako";
-import { generateId } from "./generate_id.js";
-import { UTF8Decode } from "./utf8.js";
+import { generateId } from "./generate_id";
+import { UTF8Decode } from "./utf8";
 
 function makeBlock(text) {
   const buf = new Array(32);
-  let i;
+  let i: number;
   for (i = 0; i < text.length && i < 32; ++i) {
     buf[i] = text.charCodeAt(i);
   }

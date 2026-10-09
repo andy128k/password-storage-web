@@ -1,6 +1,6 @@
 module.exports = {
   transform: {
-    "^.+\\.js(x?)$": "@swc/jest",
+    "^.+\\.(j|t)s(x?)$": "@swc/jest",
   },
 
   moduleNameMapper: {
@@ -10,7 +10,7 @@ module.exports = {
   testEnvironment: "jsdom",
 
   collectCoverage: true,
-  collectCoverageFrom: ["src/**/*.{js,jsx}", "!src/tests/**/*.js"],
+  collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!src/tests/**/*.ts"],
   coverageDirectory: "<rootDir>/coverage",
   coverageReporters: ["text-summary", "html"],
 };
