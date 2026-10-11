@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import classNames from "classnames";
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import * as style from "./style.module.css";
 
 export const Page = ({ header, children }) => (

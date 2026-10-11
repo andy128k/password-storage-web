@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import React, { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import * as style from "./style.module.css";
 
 const KEY_UP = 38;

@@ -6,6 +6,11 @@
       "tsx": true,
       "jsx": true
     },
+    "transform": {
+      "react": {
+        "runtime": "automatic"
+      }
+    },
     "target": "es2024"
   },
   "minify": true

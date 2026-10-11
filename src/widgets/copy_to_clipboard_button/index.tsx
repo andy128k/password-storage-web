@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { sleep } from "../../libs/sleep";
 import * as style from "./style.module.css";
 

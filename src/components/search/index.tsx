@@ -1,4 +1,4 @@
-import React, { useCallback, useId } from "react";
+import { useCallback, useId } from "react";
 import * as style from "./style.module.css";
 
 export const Search = ({ value, onChange }) => {

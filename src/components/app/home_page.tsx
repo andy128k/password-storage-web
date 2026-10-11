@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useContent } from "../../contexts/content";
 import { generateId } from "../../libs/generate_id";
 import { readRevelationFile } from "../../libs/revelation";

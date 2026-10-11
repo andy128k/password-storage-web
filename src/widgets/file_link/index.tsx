@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import React from "react";
 import * as style from "./style.module.css";
 
 export const FileLink = ({ file }) => (

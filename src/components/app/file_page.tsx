@@ -1,5 +1,5 @@
 import { Navigate, useParams } from "@tanstack/react-router";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useFile } from "../../contexts/content";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { Search } from "../search";

@@ -1,5 +1,5 @@
 import { RouterProvider } from "@tanstack/react-router";
-import React, { StrictMode } from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { getRouter } from "./router";
 

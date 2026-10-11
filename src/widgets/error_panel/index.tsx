@@ -1,4 +1,3 @@
-import React from "react";
 import * as style from "./style.module.css";
 
 export function ErrorPanel({ error }) {

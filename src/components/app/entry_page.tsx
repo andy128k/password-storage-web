@@ -1,5 +1,5 @@
 import { Navigate, useParams } from "@tanstack/react-router";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useFile } from "../../contexts/content";
 import { Page, ToolbarLink } from "../../widgets/page";
 import { EntryView } from "../entry_view";

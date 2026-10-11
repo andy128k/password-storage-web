@@ -1,4 +1,4 @@
-import React, { useCallback, useId, useState } from "react";
+import { useCallback, useId, useState } from "react";
 import { ErrorPanel } from "../../widgets/error_panel";
 import * as style from "./style.module.css";
 
